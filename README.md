@@ -1,16 +1,13 @@
 # passie
 
-A new Flutter project.
+Passie is a password generator built with flutter, and yaru widgets.
+![alt text](/screenshots/screenshotforpassie.png)
 
-## Getting Started
+Problems:
+- In some cases even if you de-select it
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Plans:
+- Some Design Improvements
+- Ditch gtk-header-bar for the YaruWindowTitleBar 
+- Get rounded corners(with handy_window)
+- Publish on Snap Store

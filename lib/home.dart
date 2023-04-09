@@ -75,6 +75,10 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
+          const SizedBox(
+            width: 1,
+            height: 10,
+          ),
           SizedBox(
               width: 150,
               height: 35,
@@ -92,8 +96,7 @@ class _HomePageState extends State<HomePage> {
             width: 1,
             height: 10,
           ),
-          Container(
-            alignment: Alignment.bottomCenter,
+          SizedBox(
             child: OutlinedButton(
                 onPressed: () {
                   final password = Password(
@@ -105,6 +108,10 @@ class _HomePageState extends State<HomePage> {
                   paco.text = password;
                 },
                 child: const Text("Generate Password")),
+          ),
+          const SizedBox(
+            width: 1,
+            height: 10,
           ),
           SizedBox(
             width: 300,
