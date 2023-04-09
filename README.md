@@ -1,10 +1,10 @@
 # passie
 
 Passie is a password generator built with flutter, and yaru widgets.
-![alt text](/screenshots/screenshotforpassie.png)
+(./screenshots/screenshotforpassie.png)
 
 Problems:
-- In some cases even if you de-select it
+- In some cases you get small letters in the generated password even if you de-select it
 
 Plans:
 - Some Design Improvements
