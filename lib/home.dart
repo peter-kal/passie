@@ -46,14 +46,14 @@ class _HomePageState extends State<HomePage> {
                     },
                     title: const Text("Numbers")),
                 YaruCheckboxListTile(
-                    subtitle: const Text("Add Small Letters to your password"),
+                    subtitle: const Text("Add Lower Letters to your password"),
                     value: isClicked_SmallLetters,
                     onChanged: (newSml) {
                       setState(() {
                         isClicked_SmallLetters = newSml;
                       });
                     },
-                    title: const Text("Small Letters")),
+                    title: const Text("Lower Letters")),
                 YaruCheckboxListTile(
                     subtitle:
                         const Text("Add Capital Letters to your password"),

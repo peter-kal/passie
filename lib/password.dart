@@ -23,7 +23,7 @@ String Password(
     chars += '$LowerCase';
   }
   if (hasNum) {
-    chars += '$num';
+    chars += (hasNum ? Numbers : '');
   }
   if (hasSym) {
     chars += '$Symbols';
