@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:passie/password.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 import 'package:cart_stepper/cart_stepper.dart';
@@ -118,7 +119,15 @@ class _HomePageState extends State<HomePage> {
             child: TextField(
               controller: paco,
               readOnly: true,
-              decoration: const InputDecoration(
+              enableInteractiveSelection: true,
+              decoration: InputDecoration(
+                suffix: YaruIconButton(
+                  icon: const Icon(Icons.copy),
+                  onPressed: () {
+                    final copy = ClipboardData(text: paco.text);
+                    Clipboard.setData(copy);
+                  },
+                ),
                 border: OutlineInputBorder(),
               ),
             ),
