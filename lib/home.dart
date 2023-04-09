@@ -15,7 +15,7 @@ class _HomePageState extends State<HomePage> {
   bool? isClicked_Numbers = true;
   bool? isClicked_SmallLetters = true;
   bool? isClicked_CapitalLetters = true;
-  bool? isClicked_Symbols = false;
+  bool? isClicked_Symbols = true;
   int l = 15;
 
   final paco = TextEditingController();
@@ -82,9 +82,9 @@ class _HomePageState extends State<HomePage> {
           ),
           SizedBox(
               width: 150,
-              height: 35,
+              height: 40,
               child: CartStepperInt(
-                size: 50,
+                size: 46,
                 value: l,
                 axis: Axis.horizontal,
                 didChangeCount: (value) {
@@ -115,9 +115,13 @@ class _HomePageState extends State<HomePage> {
             height: 10,
           ),
           SizedBox(
-            width: 300,
+            width: 350,
+            height: 50,
             child: TextField(
               controller: paco,
+              style: const TextStyle(
+                fontSize: 20,
+              ),
               readOnly: true,
               enableInteractiveSelection: true,
               decoration: InputDecoration(
@@ -128,7 +132,7 @@ class _HomePageState extends State<HomePage> {
                     Clipboard.setData(copy);
                   },
                 ),
-                border: OutlineInputBorder(),
+                border: const OutlineInputBorder(),
               ),
             ),
           ),
