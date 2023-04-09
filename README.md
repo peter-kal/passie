@@ -11,3 +11,4 @@ Plans:
 - Ditch gtk-header-bar for the YaruWindowTitleBar 
 - Get rounded corners(with handy_window)
 - Publish on Snap Store
+- Make the app respect the accent colours(it already respects dark/light mode)
