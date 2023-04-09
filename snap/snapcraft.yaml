@@ -1,0 +1,45 @@
+name: passie
+title: Passie
+base: core22
+version: '1.0'
+source-code: https://github.com/peter-kal/Passie
+issues: https://github.com/peter-kal/Passie/issues
+summary: A Password Generator for Linux
+description: |
+  A Password Generator for Linux built with Flutter, and Yaru widgets.
+
+
+grade: devel 
+confinement: devmode
+compression: lzo 
+
+
+slots:
+ passie-dbus:
+  interface: dbus 
+  bus: session
+  name: io.peter_kal.Passie
+
+
+apps: 
+ passie:
+  command: passie
+  extensions: [gnome]
+  plugs:
+   - x11
+   - wayland 
+   - unity7
+   - desktop 
+   - desktop-legacy
+   - opengl
+
+
+
+
+
+parts: 
+  passie:
+   plugin: flutter 
+   source-type: git 
+   source: https://github.com/peter-kal/Passie
+   flutter-target: lib/main.dart
