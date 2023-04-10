@@ -28,6 +28,10 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: const YaruWindowTitleBar(
+        isMaximizable: false,
+        title: Text('Passie'),
+      ),
       body: Column(
         children: [
           Container(
@@ -112,7 +116,7 @@ class _HomePageState extends State<HomePage> {
           ),
           const SizedBox(
             width: 1,
-            height: 10,
+            height: 20,
           ),
           SizedBox(
             width: 350,
