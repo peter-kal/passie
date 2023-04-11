@@ -30,8 +30,8 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: const YaruWindowTitleBar(
         isMaximizable: false,
-        title: Text('Passie'),
         isMinimizable: false,
+        title: Text('Passie'),
       ),
       body: Column(
         children: [
