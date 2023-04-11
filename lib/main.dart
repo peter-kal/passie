@@ -25,15 +25,16 @@ Future<void> main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Passie',
-      theme: yaruLight,
-      darkTheme: yaruDark,
-      home: const HomePage(),
-    );
+    return YaruTheme(builder: (context, yaru, child) {
+      return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Passie',
+        theme: yaru.theme,
+        darkTheme: yaru.darkTheme,
+        home: HomePage(),
+      );
+    });
   }
 }
