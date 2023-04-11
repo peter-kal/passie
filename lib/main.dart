@@ -8,10 +8,11 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await windowManager.ensureInitialized();
 
-  WindowOptions windowOptions = WindowOptions(
-    size: Size(584, 505),
-    maximumSize: Size(600, 605),
-    minimumSize: Size(370, 490),
+  WindowOptions windowOptions = const WindowOptions(
+    size: Size(500, 540),
+    maximumSize: Size(600, 540),
+    minimumSize: Size(500, 540),
+    fullScreen: false,
     titleBarStyle: TitleBarStyle.hidden,
   );
   windowManager.waitUntilReadyToShow(windowOptions, () async {
