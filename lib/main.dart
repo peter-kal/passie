@@ -8,9 +8,10 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await windowManager.ensureInitialized();
 
-  WindowOptions windowOptions = const WindowOptions(
+  WindowOptions windowOptions = WindowOptions(
     size: Size(584, 505),
     maximumSize: Size(600, 605),
+    minimumSize: Size(370, 490),
     titleBarStyle: TitleBarStyle.hidden,
   );
   windowManager.waitUntilReadyToShow(windowOptions, () async {

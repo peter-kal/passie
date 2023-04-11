@@ -31,6 +31,7 @@ class _HomePageState extends State<HomePage> {
       appBar: const YaruWindowTitleBar(
         isMaximizable: false,
         title: Text('Passie'),
+        isMinimizable: false,
       ),
       body: Column(
         children: [
