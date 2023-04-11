@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
       appBar: const YaruWindowTitleBar(
         isMaximizable: false,
         isMinimizable: false,
-        title: Text('Passie'),
+        title: Text("Passie"),
       ),
       body: Column(
         children: [
@@ -42,6 +42,8 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 YaruCheckboxListTile(
+                    shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(8))),
                     value: isClicked_Numbers,
                     subtitle: const Text("Add Numbers to your password"),
                     onChanged: (newNum) {
@@ -51,7 +53,10 @@ class _HomePageState extends State<HomePage> {
                     },
                     title: const Text("Numbers")),
                 YaruCheckboxListTile(
-                    subtitle: const Text("Add Lower Letters to your password"),
+                    shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(8))),
+                    subtitle:
+                        const Text("Add Lower Case Letters to your password"),
                     value: isClicked_SmallLetters,
                     onChanged: (newSml) {
                       setState(() {
@@ -60,6 +65,8 @@ class _HomePageState extends State<HomePage> {
                     },
                     title: const Text("Lower Letters")),
                 YaruCheckboxListTile(
+                    shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(8))),
                     subtitle:
                         const Text("Add Capital Letters to your password"),
                     value: isClicked_CapitalLetters,
@@ -70,6 +77,8 @@ class _HomePageState extends State<HomePage> {
                     },
                     title: const Text("Capital Letters")),
                 YaruCheckboxListTile(
+                    shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(8))),
                     subtitle: const Text("Add Symbols to your password"),
                     value: isClicked_Symbols,
                     onChanged: (newSym) {
@@ -120,7 +129,7 @@ class _HomePageState extends State<HomePage> {
             height: 20,
           ),
           SizedBox(
-            width: 350,
+            width: 400,
             height: 50,
             child: TextField(
               controller: paco,
