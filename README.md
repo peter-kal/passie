@@ -12,6 +12,6 @@ Plans:
 - Get rounded corners(with handy_window)(done)
 - Make the app respect the accent colours(it already respects dark/light mode)(done)
 - Make an icon 
-- make a .desktop file 
+- make a .desktop file(done)
 - improve snap
 - Publish on Snap Store
