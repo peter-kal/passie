@@ -1,17 +1,20 @@
 name: passie
+title: Passie
 adopt-info: passie
 base: core22 
-version: '0.1'
-summary: Single-line elevator pitch for your amazing snap # 79 char long summary
+version: '1.0'
+license: GPL-3.0
+source-code: https://github.com/peter-kal/passie.git
+issues: https://github.com/peter-kal/passie/issues
+
+summary: A simple yet, powerful password generator.
 description: |
-  This is my-snap's description. You have a paragraph or two to tell the
-  most important story about your snap. Keep it under 100 words though,
-  we live in tweetspace and your description wants to look good in the snap
-  store.
+  Passie is a password generator build with Flutter, and Yaru widgets.
 
-grade: devel # must be 'stable' to release into candidate/stable channels
-confinement: devmode # use 'strict' once you have the right plugs and slots
-
+grade: stable
+confinement: strict 
+compression: lzo
+architectures: [amd64]
 
 parts:
   flutter-git:
@@ -52,10 +55,25 @@ parts:
       flutter build linux --release -v
       mkdir -p $CRAFT_PART_INSTALL/bin/
       cp -r build/linux/*/release/bundle/* $CRAFT_PART_INSTALL/bin/
+
+
+slots:
+  passie-dbus:
+   interface: dbus
+   bus: session 
+   name: io.peter-kal.Passie
       
 apps:
  passie:
   command: bin/Passie
   extensions: [gnome]
-  
+  plugs:
+    - x11
+    - wayland 
+    - desktop
+    - desktop-legacy
+    - unity7 
+  slots:
+    - passie-dbus
+
 
