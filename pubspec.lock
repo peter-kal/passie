@@ -86,14 +86,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.1"
-  flutter_spinbox:
-    dependency: "direct main"
-    description:
-      name: flutter_spinbox
-      sha256: ba52f88304774efca16545a8173dfe89c58ec3e794a19cb5d5d6183732bb5ea0
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.13.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -160,14 +152,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.8.0"
-  password_generator:
-    dependency: "direct main"
-    description:
-      name: password_generator
-      sha256: "3b3d70d518d08a2f7619a03730287120f379562b6ef2e41325faec2ff73abf7f"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.0"
   path:
     dependency: transitive
     description:
