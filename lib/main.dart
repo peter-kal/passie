@@ -9,10 +9,10 @@ Future<void> main() async {
   await windowManager.ensureInitialized();
 
   WindowOptions windowOptions = const WindowOptions(
-    size: Size(500, 540),
     titleBarStyle: TitleBarStyle.hidden,
-    fullScreen: false,
+    size: Size(500, 540),
     maximumSize: Size(600, 540),
+    fullScreen: false,
     minimumSize: Size(500, 540),
   );
   windowManager.waitUntilReadyToShow(windowOptions, () async {
@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
         title: 'Passie',
         theme: yaru.theme,
         darkTheme: yaru.darkTheme,
-        home: HomePage(),
+        home: const HomePage(),
       );
     });
   }

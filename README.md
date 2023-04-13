@@ -11,7 +11,11 @@ Plans:
 - Ditch gtk-header-bar for the YaruWindowTitleBar (done)
 - Get rounded corners(with handy_window)(done)
 - Make the app respect the accent colours(it already respects dark/light mode)(done)
-- Make an icon 
+- Make an icon (done)
 - make a .desktop file(done)
-- improve snap
-- Publish on Snap Store
+- improve snap(done)
+- Publish on Snap Store(working on it)
+
+
+
+This project is licensed under the terms of the MPL-2.0 license

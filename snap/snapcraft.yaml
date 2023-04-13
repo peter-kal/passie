@@ -3,9 +3,10 @@ title: Passie
 adopt-info: passie
 base: core22 
 version: '1.0'
-license: GPL-3.0
-source-code: https://github.com/peter-kal/passie.git
+license: MPL-2.0
+source-code: https://github.com/peter-kal/passie
 issues: https://github.com/peter-kal/passie/issues
+icon: snap/gui/passieicon.png
 
 summary: A simple yet, powerful password generator.
 description: |
@@ -38,11 +39,6 @@ parts:
       - -*
 
 
-
-
-
-
-
   passie:
     plugin: nil
     source: https://github.com/peter-kal/passie.git
@@ -66,6 +62,7 @@ slots:
 apps:
  passie:
   command: bin/Passie
+  desktop: snap/gui/passie.desktop
   extensions: [gnome]
   plugs:
     - x11

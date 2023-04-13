@@ -1,0 +1,16 @@
+[Desktop Entry]
+Encoding=UTF-8
+
+Version=1.0
+Type=Application
+Name=Passie
+Icon=/snap/gui/passieicon.png
+
+Terminal=false
+Exec=passie
+
+Keywords=Password;Security;
+Comment=A simple password generator
+Categories=Utilities;
+
+
