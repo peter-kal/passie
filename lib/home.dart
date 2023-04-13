@@ -29,9 +29,11 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const YaruWindowTitleBar(
+        title: Text(
+          "Passie",
+        ),
         isMaximizable: false,
         isMinimizable: false,
-        title: Text("Passie"),
       ),
       body: Column(
         children: [
@@ -43,7 +45,7 @@ class _HomePageState extends State<HomePage> {
               children: [
                 YaruCheckboxListTile(
                     shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(8))),
+                        borderRadius: BorderRadius.all(Radius.circular(10))),
                     value: isClicked_Numbers,
                     subtitle: const Text("Add Numbers to your password"),
                     onChanged: (newNum) {
@@ -54,7 +56,7 @@ class _HomePageState extends State<HomePage> {
                     title: const Text("Numbers")),
                 YaruCheckboxListTile(
                     shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(8))),
+                        borderRadius: BorderRadius.all(Radius.circular(10))),
                     subtitle:
                         const Text("Add Lower Case Letters to your password"),
                     value: isClicked_SmallLetters,
@@ -66,7 +68,7 @@ class _HomePageState extends State<HomePage> {
                     title: const Text("Lower Letters")),
                 YaruCheckboxListTile(
                     shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(8))),
+                        borderRadius: BorderRadius.all(Radius.circular(10))),
                     subtitle:
                         const Text("Add Capital Letters to your password"),
                     value: isClicked_CapitalLetters,
@@ -78,7 +80,7 @@ class _HomePageState extends State<HomePage> {
                     title: const Text("Capital Letters")),
                 YaruCheckboxListTile(
                     shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(8))),
+                        borderRadius: BorderRadius.all(Radius.circular(10))),
                     subtitle: const Text("Add Symbols to your password"),
                     value: isClicked_Symbols,
                     onChanged: (newSym) {
@@ -137,10 +139,11 @@ class _HomePageState extends State<HomePage> {
                 fontSize: 20,
               ),
               readOnly: true,
-              enableInteractiveSelection: true,
+              enableInteractiveSelection: false,
               decoration: InputDecoration(
                 suffix: YaruIconButton(
                   icon: const Icon(Icons.copy),
+                  tooltip: 'Copy to Clipboard',
                   onPressed: () {
                     final copy = ClipboardData(text: paco.text);
                     Clipboard.setData(copy);
