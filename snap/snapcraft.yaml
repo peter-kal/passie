@@ -1,16 +1,18 @@
 name: passie
 title: Passie
-adopt-info: passie
 base: core22 
-version: '1.0'
+version: "1.0"
 license: MPL-2.0
 source-code: https://github.com/peter-kal/passie
 issues: https://github.com/peter-kal/passie/issues
 icon: snap/gui/passieicon.png
 
-summary: A simple yet, powerful password generator.
+summary: A simple, yet powerful password generator.
 description: |
   Passie is a password generator build with Flutter, and Yaru widgets.
+  You are able to choose if you want numbers, symbols, Capital or Lower case letters; as well as the number of characters.
+  Passie is Open-Source(licensed under MPL-2.0), and strictly confined, meaning it hasn't access to things it doesn't need like: internet, or system files.
+  
 
 grade: stable
 confinement: strict 
@@ -70,7 +72,5 @@ apps:
     - desktop
     - desktop-legacy
     - unity7 
-  slots:
-    - passie-dbus
-
+    - opengl
 
