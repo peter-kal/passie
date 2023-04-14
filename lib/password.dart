@@ -17,16 +17,16 @@ String Password(
 
   String chars = '';
   if (hasUppLet) {
-    chars += '$UpperCase';
+    chars += (hasUppLet ? UpperCase : '');
   }
   if (hasSmllLet) {
-    chars += '$LowerCase';
+    chars += (hasSmllLet ? LowerCase : '');
   }
   if (hasNum) {
     chars += (hasNum ? Numbers : '');
   }
   if (hasSym) {
-    chars += '$Symbols';
+    chars += (hasSym ? Symbols : '');
   }
 
   var i = 0;
@@ -40,5 +40,9 @@ String Password(
     pass += chars[randomInt];
     i++;
   }
+  if (lenghthere == 0) {
+    pass = "Zero means no password <3";
+  }
+
   return pass;
 }
