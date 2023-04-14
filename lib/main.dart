@@ -11,9 +11,9 @@ Future<void> main() async {
   WindowOptions windowOptions = const WindowOptions(
     titleBarStyle: TitleBarStyle.hidden,
     size: Size(500, 540),
+    minimumSize: Size(500, 540),
     maximumSize: Size(600, 540),
     fullScreen: false,
-    minimumSize: Size(500, 540),
   );
   windowManager.waitUntilReadyToShow(windowOptions, () async {
     await windowManager.show();
