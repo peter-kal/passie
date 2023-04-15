@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
           "Passie",
         ),
         isMaximizable: false,
-        isMinimizable: false,
+        isMinimizable: true,
       ),
       body: Column(
         children: [
