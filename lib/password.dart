@@ -40,9 +40,6 @@ String Password(
     pass += chars[randomInt];
     i++;
   }
-  if (lenghthere == 0) {
-    pass = "Zero means no password <3";
-  }
 
   return pass;
 }

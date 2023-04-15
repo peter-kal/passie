@@ -106,6 +106,14 @@ class _HomePageState extends State<HomePage> {
                 didChangeCount: (value) {
                   setState(() {
                     l = value;
+                    if (l < 5) {
+                      // Make 5 the minimum
+                      l = 5;
+                    }
+                    if (l > 100000) {
+                      // Makes 100000 the maximum
+                      l = 100000;
+                    }
                   });
                 },
               )),
