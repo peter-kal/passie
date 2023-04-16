@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:passie/password.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 import 'package:cart_stepper/cart_stepper.dart';
+import 'package:passie/copymessage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -149,16 +150,18 @@ class _HomePageState extends State<HomePage> {
               readOnly: true,
               enableInteractiveSelection: false,
               decoration: InputDecoration(
-                suffix: YaruIconButton(
-                  icon: const Icon(Icons.copy),
-                  tooltip: 'Copy to Clipboard',
-                  onPressed: () {
-                    final copy = ClipboardData(text: paco.text);
-                    Clipboard.setData(copy);
-                  },
-                ),
-                border: const OutlineInputBorder(),
-              ),
+                  suffix: YaruIconButton(
+                    icon: const Icon(Icons.copy),
+                    tooltip: 'Copy to Clipboard',
+                    onPressed: () {
+                      final copy = ClipboardData(text: paco.text);
+                      Clipboard.setData(copy).then((result) {
+                        CopySnack;
+                      });
+                      ScaffoldMessenger.of(context).showSnackBar(CopySnack);
+                    },
+                  ),
+                  border: const OutlineInputBorder()),
             ),
           ),
         ],
