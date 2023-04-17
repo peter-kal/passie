@@ -1,7 +1,7 @@
 name: passie
 title: Passie
 base: core22 
-version: 1.0.2
+version: 1.0.2.1
 license: MPL-2.0
 source-code: https://github.com/peter-kal/passie
 website: https://github.com/peter-kal/passie
@@ -14,12 +14,15 @@ description: |
   You are able to choose if you want numbers, symbols, Capital or Lower case letters; as well as the number of characters.
   Passie is Open-Source(licensed under MPL-2.0), and strictly confined, meaning it can't access things it doesn't need, to function,
   like: internet, or system files.
+  Feel safe generating your passwords.
   
 
 grade: stable
 confinement: strict 
 compression: lzo
-architectures: [amd64]
+architectures: 
+ - amd64 
+ - arm64
 
 parts:
   flutter-from-git:

@@ -144,9 +144,7 @@ class _HomePageState extends State<HomePage> {
             height: 50,
             child: TextField(
               controller: paco,
-              style: const TextStyle(
-                fontSize: 20,
-              ),
+              style: const TextStyle(fontSize: 20, fontStyle: FontStyle.normal),
               readOnly: true,
               enableInteractiveSelection: false,
               decoration: InputDecoration(
@@ -156,9 +154,9 @@ class _HomePageState extends State<HomePage> {
                     onPressed: () {
                       final copy = ClipboardData(text: paco.text);
                       Clipboard.setData(copy).then((result) {
-                        CopySnack;
+                        copySnack;
                       });
-                      ScaffoldMessenger.of(context).showSnackBar(CopySnack);
+                      ScaffoldMessenger.of(context).showSnackBar(copySnack);
                     },
                   ),
                   border: const OutlineInputBorder()),
