@@ -1,5 +1,9 @@
 # passie
 
+<a href="https://snapcraft.io/passie">
+  <img alt="Get it from the Snap Store" src="https://snapcraft.io/static/images/badges/en/snap-store-black.svg" />
+</a>
+
 Passie is a password generator built with flutter, and yaru widgets.
 ![](screenshots/screenshotofpassie2.png)
 ![](screenshots/screenshotofpassie1.png)
@@ -19,7 +23,9 @@ Plans:
 - Make an icon (done)
 - make a .desktop file(done)
 - improve snap(done)
-- Publish on Snap Store(working on it)
+- set limits to the number of characters(done)
+- made the window minimizable (done)
+- Publish on Snap Store(done)
 
 
 
