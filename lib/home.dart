@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:passie/password.dart';
@@ -18,7 +20,11 @@ class _HomePageState extends State<HomePage> {
   bool? isClicked_CapitalLetters = true;
   bool? isClicked_Symbols = true;
   int l = 15;
-
+  final _check1 = GlobalKey();
+  final _check2 = GlobalKey();
+  final _check3 = GlobalKey();
+  final _check4 = GlobalKey();
+  final _inputPass = GlobalKey();
   final paco = TextEditingController();
   @override
   void dispose() {
@@ -45,6 +51,7 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 YaruCheckboxListTile(
+                    key: _check1,
                     shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10))),
                     value: isClicked_Numbers,
@@ -56,6 +63,7 @@ class _HomePageState extends State<HomePage> {
                     },
                     title: const Text("Numbers")),
                 YaruCheckboxListTile(
+                    key: _check2,
                     shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10))),
                     subtitle:
@@ -68,6 +76,7 @@ class _HomePageState extends State<HomePage> {
                     },
                     title: const Text("Lower Letters")),
                 YaruCheckboxListTile(
+                    key: _check3,
                     shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10))),
                     subtitle:
@@ -80,6 +89,7 @@ class _HomePageState extends State<HomePage> {
                     },
                     title: const Text("Capital Letters")),
                 YaruCheckboxListTile(
+                    key: _check4,
                     shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10))),
                     subtitle: const Text("Add Symbols to your password"),
@@ -100,23 +110,26 @@ class _HomePageState extends State<HomePage> {
           SizedBox(
               width: 150,
               height: 40,
-              child: CartStepperInt(
-                size: 46,
-                value: l,
-                axis: Axis.horizontal,
-                didChangeCount: (value) {
-                  setState(() {
-                    l = value;
-                    if (l < 5) {
-                      // Make 5 the minimum
-                      l = 5;
-                    }
-                    if (l > 100000) {
-                      // Makes 100000 the maximum
-                      l = 100000;
-                    }
-                  });
-                },
+              child: MouseRegion(
+                cursor: SystemMouseCursors.basic,
+                child: CartStepperInt(
+                  size: 46,
+                  value: l,
+                  axis: Axis.horizontal,
+                  didChangeCount: (value) {
+                    setState(() {
+                      l = value;
+                      if (l < 5) {
+                        // Make 5 the minimum
+                        l = 5;
+                      }
+                      if (l > 100000) {
+                        // Makes 100000 the maximum
+                        l = 100000;
+                      }
+                    });
+                  },
+                ),
               )),
           const SizedBox(
             width: 1,
@@ -143,6 +156,7 @@ class _HomePageState extends State<HomePage> {
             width: 400,
             height: 50,
             child: TextField(
+              key: _inputPass,
               controller: paco,
               style: const TextStyle(fontSize: 20, fontStyle: FontStyle.normal),
               readOnly: true,
