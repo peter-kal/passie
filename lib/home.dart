@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:passie/password.dart';
@@ -110,26 +108,23 @@ class _HomePageState extends State<HomePage> {
           SizedBox(
               width: 150,
               height: 40,
-              child: MouseRegion(
-                cursor: SystemMouseCursors.basic,
-                child: CartStepperInt(
-                  size: 46,
-                  value: l,
-                  axis: Axis.horizontal,
-                  didChangeCount: (value) {
-                    setState(() {
-                      l = value;
-                      if (l < 5) {
-                        // Make 5 the minimum
-                        l = 5;
-                      }
-                      if (l > 100000) {
-                        // Makes 100000 the maximum
-                        l = 100000;
-                      }
-                    });
-                  },
-                ),
+              child: CartStepperInt(
+                size: 46,
+                value: l,
+                axis: Axis.horizontal,
+                didChangeCount: (value) {
+                  setState(() {
+                    l = value;
+                    if (l < 5) {
+                      // Make 5 the minimum
+                      l = 5;
+                    }
+                    if (l > 100000) {
+                      // Makes 100000 the maximum
+                      l = 100000;
+                    }
+                  });
+                },
               )),
           const SizedBox(
             width: 1,
