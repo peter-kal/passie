@@ -10,7 +10,7 @@ Future<void> main() async {
 
   WindowOptions windowOptions = const WindowOptions(
     minimumSize: Size(500, 540),
-    maximumSize: Size(600, 540),
+    maximumSize: Size(500, 540),
     fullScreen: false,
   );
   windowManager.waitUntilReadyToShow(windowOptions, () async {
