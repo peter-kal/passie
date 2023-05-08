@@ -9,13 +9,15 @@ Future<void> main() async {
   await windowManager.ensureInitialized();
 
   WindowOptions windowOptions = const WindowOptions(
-    minimumSize: Size(500, 540),
+    size: Size(500, 540),
     maximumSize: Size(500, 540),
+    minimumSize: Size(500, 540),
     fullScreen: false,
   );
-  windowManager.waitUntilReadyToShow(windowOptions, () async {
-    await windowManager.show();
+  await windowManager.waitUntilReadyToShow(windowOptions, () async {
     await windowManager.focus();
+    await windowManager.show();
+
   });
   YaruWindowTitleBar.ensureInitialized();
   runApp(const MyApp());
