@@ -4,6 +4,8 @@ import 'package:passie/password.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 import 'package:cart_stepper/cart_stepper.dart';
 import 'package:passie/copymessage.dart';
+import 'package:yaru_icons/yaru_icons.dart';
+import 'package:passie/aboutdialog.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -33,13 +35,55 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const YaruWindowTitleBar(
-        title: Text(
-          "Passie",
-        ),
-        isMaximizable: false,
-        isMinimizable: true,
-      ),
+      appBar: YaruWindowTitleBar(
+          title: const Text(
+            "Passie",
+          ),
+          isMaximizable: false,
+          isMinimizable: true,
+          leading: IconButton(
+              onPressed: () => showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      titlePadding: EdgeInsets.zero,
+                      title: const YaruDialogTitleBar(
+                        title: Text("About"),
+                        isClosable: true,
+                      ),
+                      content: SizedBox(
+                        height: 300,
+                        width: 300,
+                        child: Column(
+                          children: [
+                            YaruSection(
+                                child: Column(children: [
+                              YaruTile(
+                                title: const Text("License: MPL-2.0"),
+                                trailing: OutlinedButton(
+                                  child: const Text("Packages Used"),
+                                  onPressed: () {},
+                                ),
+                              ),
+                              YaruTile(
+                                  title: const Text("Source Code"),
+                                  trailing: OutlinedButton(
+                                    onPressed: () {},
+                                    child: Row(
+                                      children: const [
+                                        Text("Go to source"),
+                                        SizedBox(width: 5),
+                                        Icon(Icons.launch)
+                                      ],
+                                    ),
+                                  )),
+                            ]))
+                          ],
+                        ),
+                      ),
+                    );
+                  }),
+              icon: const Icon(Icons.help))),
       body: Column(
         children: [
           Container(
