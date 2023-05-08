@@ -109,6 +109,7 @@ class _HomePageState extends State<HomePage> {
               width: 150,
               height: 40,
               child: CartStepperInt(
+                editKeyboardType: TextInputType.number,
                 size: 46,
                 value: l,
                 axis: Axis.horizontal,
