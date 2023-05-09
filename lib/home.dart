@@ -5,7 +5,6 @@ import 'package:yaru_widgets/yaru_widgets.dart';
 import 'package:cart_stepper/cart_stepper.dart';
 import 'package:passie/copymessage.dart';
 import 'package:yaru_icons/yaru_icons.dart';
-import 'package:passie/aboutdialog.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -20,11 +19,7 @@ class _HomePageState extends State<HomePage> {
   bool? isClicked_CapitalLetters = true;
   bool? isClicked_Symbols = true;
   int l = 15;
-  final _check1 = GlobalKey();
-  final _check2 = GlobalKey();
-  final _check3 = GlobalKey();
-  final _check4 = GlobalKey();
-  final _inputPass = GlobalKey();
+
   final paco = TextEditingController();
   @override
   void dispose() {
@@ -42,13 +37,14 @@ class _HomePageState extends State<HomePage> {
           isMaximizable: false,
           isMinimizable: true,
           leading: IconButton(
+            tooltip: 'More Info',
               onPressed: () => showDialog(
                   context: context,
                   builder: (context) {
                     return AlertDialog(
                       titlePadding: EdgeInsets.zero,
                       title: const YaruDialogTitleBar(
-                        title: Text("About"),
+                        title: Text("More Info"),
                         isClosable: true,
                       ),
                       content: SizedBox(
@@ -57,23 +53,28 @@ class _HomePageState extends State<HomePage> {
                         child: Column(
                           children: [
                             YaruSection(
+
                                 child: Column(children: [
-                              YaruTile(
-                                title: const Text("License: MPL-2.0"),
-                                trailing: OutlinedButton(
-                                  child: const Text("Packages Used"),
-                                  onPressed: () {},
-                                ),
+                              const YaruTile(
+                                title:  Text("License:"),
+                                trailing: FilledButton(onPressed: null, child: Text("MPL-2.0")),
+
                               ),
                               YaruTile(
-                                  title: const Text("Source Code"),
-                                  trailing: OutlinedButton(
-                                    onPressed: () {},
+                                  title: const Text("Source Code:"),
+                                  trailing: FilledButton(
+                                    onPressed: () {
+                                      const copyforlink =  ClipboardData(text: 'https://github.com/peter-kal/passie');
+                                      Clipboard.setData(copyforlink).then((result){
+                                        copySnack;
+                                      });
+                                      ScaffoldMessenger.of(context).showSnackBar(copySnack);
+                                    },
                                     child: Row(
                                       children: const [
-                                        Text("Go to source"),
+                                        Text("Copy Link"),
                                         SizedBox(width: 5),
-                                        Icon(Icons.launch)
+                                        Icon(Icons.copy)
                                       ],
                                     ),
                                   )),
@@ -83,7 +84,9 @@ class _HomePageState extends State<HomePage> {
                       ),
                     );
                   }),
-              icon: const Icon(Icons.help))),
+              icon: const Icon(Icons.menu),
+          )),
+
       body: Column(
         children: [
           Container(
@@ -93,7 +96,6 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 YaruCheckboxListTile(
-                    key: _check1,
                     shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10))),
                     value: isClicked_Numbers,
@@ -105,7 +107,6 @@ class _HomePageState extends State<HomePage> {
                     },
                     title: const Text("Numbers")),
                 YaruCheckboxListTile(
-                    key: _check2,
                     shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10))),
                     subtitle:
@@ -118,7 +119,6 @@ class _HomePageState extends State<HomePage> {
                     },
                     title: const Text("Lower Letters")),
                 YaruCheckboxListTile(
-                    key: _check3,
                     shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10))),
                     subtitle:
@@ -131,7 +131,6 @@ class _HomePageState extends State<HomePage> {
                     },
                     title: const Text("Capital Letters")),
                 YaruCheckboxListTile(
-                    key: _check4,
                     shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10))),
                     subtitle: const Text("Add Symbols to your password"),
@@ -196,13 +195,13 @@ class _HomePageState extends State<HomePage> {
             width: 400,
             height: 50,
             child: TextField(
-              key: _inputPass,
               controller: paco,
               style: const TextStyle(fontSize: 20, fontStyle: FontStyle.normal),
               readOnly: true,
               enableInteractiveSelection: false,
               decoration: InputDecoration(
                   suffix: YaruIconButton(
+
                     icon: const Icon(Icons.copy),
                     tooltip: 'Copy to Clipboard',
                     onPressed: () {
