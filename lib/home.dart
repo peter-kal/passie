@@ -64,7 +64,7 @@ class _HomePageState extends State<HomePage> {
                                 child: Column(children: [
                               const YaruTile(
                                 title:  Text("License:"),
-                                trailing: FilledButton(onPressed: null, child: Text("MPL-2.0")),
+                                trailing: Text("MPL-2.0"),
 
                               ),
                               YaruTile(
