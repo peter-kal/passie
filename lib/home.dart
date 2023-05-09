@@ -4,7 +4,6 @@ import 'package:passie/password.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 import 'package:cart_stepper/cart_stepper.dart';
 import 'package:passie/copymessage.dart';
-import 'package:yaru_icons/yaru_icons.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -52,6 +51,14 @@ class _HomePageState extends State<HomePage> {
                         width: 300,
                         child: Column(
                           children: [
+                            const YaruSection(child:
+                            YaruTile(
+                              title: Text('Created By:'),
+                              trailing: Text("Peter Kal"),
+
+                            )
+                            ),
+                            const SizedBox(height: 10),
                             YaruSection(
 
                                 child: Column(children: [
