@@ -91,7 +91,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     );
                   }),
-              icon: const Icon(Icons.menu),
+              icon: const Icon(Icons.info),
           )),
 
       body: Column(
