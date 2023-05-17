@@ -18,8 +18,15 @@ class _HomePageState extends State<HomePage> {
   bool isClicked_SmallLetters = true;
   bool isClicked_CapitalLetters = true;
   bool isClicked_Symbols = true;
-  int l = 15;
+  TextEditingController pacoforsymbols = TextEditingController();
+  @override
+  void initState() {
+    super.initState();
+    pacoforsymbols = new TextEditingController(text: SymbolsValue);
+  }
 
+  var SymbolsValue = '@!#{}[]":%^&*()';
+  int l = 15;
   final paco = TextEditingController();
   @override
   void dispose() {
@@ -87,13 +94,35 @@ class _HomePageState extends State<HomePage> {
                                         ],
                                       ),
                                     )),
-                              ]))
+                              ])),
+                              const SizedBox(height: 10),
+                              YaruSection(
+                                  child: SizedBox(
+                                child: TextField(
+                                  controller: pacoforsymbols,
+                                  enabled: true,
+                                  decoration: InputDecoration(
+                                    suffix: YaruIconButton(
+                                      icon: const Icon(Icons.restore),
+                                      onPressed: () {
+                                        SymbolsValue = '@!#{}[]":%^&*()';
+                                        pacoforsymbols.text = '@!#{}[]":%^&*()';
+                                      },
+                                    ),
+                                    labelText: 'Symbols',
+                                  ),
+                                  onChanged: (newsym) {
+                                    newsym = pacoforsymbols.text;
+                                    SymbolsValue = pacoforsymbols.text;
+                                  },
+                                ),
+                              ))
                             ],
                           ),
                         ),
                       );
                     }),
-                icon: const Icon(Icons.info),
+                icon: const Icon(Icons.settings),
               )),
           bottomNavigationBar: BottomAppBar(
             height: 120,
@@ -137,7 +166,8 @@ class _HomePageState extends State<HomePage> {
                             isClicked_Symbols,
                             isClicked_CapitalLetters,
                             isClicked_SmallLetters,
-                            l);
+                            l,
+                            SymbolsValue);
                         paco.text = password;
                       },
                       child: const Text("Generate Password")),
@@ -292,7 +322,29 @@ class _HomePageState extends State<HomePage> {
                                         ],
                                       ),
                                     )),
-                              ]))
+                              ])),
+                              const SizedBox(height: 10),
+                              YaruSection(
+                                  child: SizedBox(
+                                child: TextField(
+                                  controller: pacoforsymbols,
+                                  enabled: true,
+                                  decoration: InputDecoration(
+                                    suffix: YaruIconButton(
+                                      icon: const Icon(Icons.restore),
+                                      tooltip: 'Restore',
+                                      onPressed: () {
+                                        pacoforsymbols.text = '@!#{}[]":%^&*()';
+                                      },
+                                    ),
+                                    labelText: 'Symbols',
+                                  ),
+                                  onChanged: (newsym) {
+                                    newsym = pacoforsymbols.text;
+                                    SymbolsValue = pacoforsymbols.text;
+                                  },
+                                ),
+                              ))
                             ],
                           ),
                         ),
@@ -343,7 +395,8 @@ class _HomePageState extends State<HomePage> {
                             isClicked_Symbols,
                             isClicked_CapitalLetters,
                             isClicked_SmallLetters,
-                            l);
+                            l,
+                            SymbolsValue);
                         paco.text = password;
                       },
                       child: const Text("Generate Password")),
