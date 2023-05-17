@@ -1,4 +1,3 @@
-import 'package:passie/home.dart';
 import 'dart:math';
 
 String Password(
@@ -8,7 +7,6 @@ String Password(
   var hasSmllLet,
   var lenght,
 ) {
-  HomePage hm = HomePage();
   final lenghthere = lenght;
   const LowerCase = 'abcdefghijklmnopqrstuvwxyz';
   const UpperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';

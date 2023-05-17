@@ -67,7 +67,7 @@ class _HomePageState extends State<HomePage> {
                                 ),
                                 YaruTile(
                                     title: const Text("Source Code:"),
-                                    trailing: FilledButton(
+                                    trailing: ElevatedButton(
                                       onPressed: () {
                                         const copyforlink = ClipboardData(
                                             text:
@@ -97,7 +97,7 @@ class _HomePageState extends State<HomePage> {
               )),
           bottomNavigationBar: BottomAppBar(
             height: 120,
-            elevation: 10000000000,
+            elevation: 80,
             child: Column(
               children: [
                 SizedBox(
@@ -130,7 +130,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 SizedBox(
                   height: 40,
-                  child: OutlinedButton(
+                  child: FilledButton(
                       onPressed: () {
                         final password = Password(
                             isClicked_Numbers,

@@ -18,9 +18,9 @@ Future<void> main() async {
       fullScreen: false,
     );
     await windowManager.waitUntilReadyToShow(windowOptions, () async {
-      await windowManager.show();
       await windowManager.focus();
       await windowManager.getSize();
+      await windowManager.show();
     });
   }
   YaruWindowTitleBar.ensureInitialized();
@@ -37,8 +37,8 @@ class MyApp extends StatelessWidget {
       return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Passie',
-        theme: yaruLight,
-        darkTheme: yaruDark,
+        theme: yaru.theme,
+        darkTheme: yaru.darkTheme,
         home: const HomePage(),
       );
     });
