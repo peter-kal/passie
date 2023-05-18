@@ -106,7 +106,7 @@ class _HomePageState extends State<HomePage> {
                                       icon: const Icon(Icons.restore),
                                       onPressed: () {
                                         SymbolsValue = '@!#{}[]":%^&*()';
-                                        pacoforsymbols.text = '@!#{}[]":%^&*()';
+                                        pacoforsymbols.text = SymbolsValue;
                                       },
                                     ),
                                     labelText: 'Symbols',
@@ -161,7 +161,7 @@ class _HomePageState extends State<HomePage> {
                   height: 40,
                   child: FilledButton(
                       onPressed: () {
-                        final password = Password(
+                        var password = Password(
                             isClicked_Numbers,
                             isClicked_Symbols,
                             isClicked_CapitalLetters,
@@ -177,16 +177,16 @@ class _HomePageState extends State<HomePage> {
           ),
           body: Column(
             children: [
-              Container(
-                alignment: Alignment.center,
+              YaruSection(
+                padding: const EdgeInsets.all(0),
+                margin: const EdgeInsets.all(8),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     YaruSwitchListTile(
                         shape: const RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10))),
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(10),
+                                topRight: Radius.circular(10))),
                         value: isClicked_Numbers,
                         subtitle: const Text("Add Numbers to your password"),
                         onChanged: (newNum) {
@@ -196,9 +196,6 @@ class _HomePageState extends State<HomePage> {
                         },
                         title: const Text("Numbers")),
                     YaruSwitchListTile(
-                        shape: const RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10))),
                         subtitle: const Text(
                             "Add Lower Case Letters to your password"),
                         value: isClicked_SmallLetters,
@@ -209,9 +206,6 @@ class _HomePageState extends State<HomePage> {
                         },
                         title: const Text("Lower Letters")),
                     YaruSwitchListTile(
-                        shape: const RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10))),
                         subtitle:
                             const Text("Add Capital Letters to your password"),
                         value: isClicked_CapitalLetters,
@@ -223,8 +217,9 @@ class _HomePageState extends State<HomePage> {
                         title: const Text("Capital Letters")),
                     YaruSwitchListTile(
                         shape: const RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10))),
+                            borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(10),
+                                bottomRight: Radius.circular(10))),
                         subtitle: const Text("Add Symbols to your password"),
                         value: isClicked_Symbols,
                         onChanged: (newSym) {
@@ -237,8 +232,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               const SizedBox(
-                width: 1,
-                height: 10,
+                height: 3,
               ),
               SizedBox(
                   width: 150,
@@ -262,6 +256,9 @@ class _HomePageState extends State<HomePage> {
                       });
                     },
                   )),
+              const SizedBox(
+                height: 3,
+              ),
             ],
           ),
         );
@@ -412,56 +409,62 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SwitchListTile(
-                        shape: const RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10))),
-                        value: isClicked_Numbers,
-                        subtitle: const Text("Add Numbers to your password"),
-                        onChanged: (newNum) {
-                          setState(() {
-                            isClicked_Numbers = newNum;
-                          });
-                        },
-                        title: const Text("Numbers")),
-                    SwitchListTile(
-                        shape: const RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10))),
-                        subtitle: const Text(
-                            "Add Lower Case Letters to your password"),
-                        value: isClicked_SmallLetters,
-                        onChanged: (newSml) {
-                          setState(() {
-                            isClicked_SmallLetters = newSml;
-                          });
-                        },
-                        title: const Text("Lower Letters")),
-                    SwitchListTile(
-                        shape: const RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10))),
-                        subtitle:
-                            const Text("Add Capital Letters to your password"),
-                        value: isClicked_CapitalLetters,
-                        onChanged: (newCap) {
-                          setState(() {
-                            isClicked_CapitalLetters = newCap;
-                          });
-                        },
-                        title: const Text("Capital Letters")),
-                    SwitchListTile(
-                        shape: const RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10))),
-                        subtitle: const Text("Add Symbols to your password"),
-                        value: isClicked_Symbols,
-                        onChanged: (newSym) {
-                          setState(() {
-                            isClicked_Symbols = newSym;
-                          });
-                        },
-                        title: const Text("Symbols")),
+                    YaruSection(
+                      padding: const EdgeInsets.all(0),
+                      margin: const EdgeInsets.all(8),
+                      child: Column(
+                        children: [
+                          SwitchListTile(
+                              shape: const RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(10),
+                                      topRight: Radius.circular(10))),
+                              value: isClicked_Numbers,
+                              subtitle:
+                                  const Text("Add Numbers to your password"),
+                              onChanged: (newNum) {
+                                setState(() {
+                                  isClicked_Numbers = newNum;
+                                });
+                              },
+                              title: const Text("Numbers")),
+                          SwitchListTile(
+                              subtitle: const Text(
+                                  "Add Lower Case Letters to your password"),
+                              value: isClicked_SmallLetters,
+                              onChanged: (newSml) {
+                                setState(() {
+                                  isClicked_SmallLetters = newSml;
+                                });
+                              },
+                              title: const Text("Lower Letters")),
+                          SwitchListTile(
+                              subtitle: const Text(
+                                  "Add Capital Letters to your password"),
+                              value: isClicked_CapitalLetters,
+                              onChanged: (newCap) {
+                                setState(() {
+                                  isClicked_CapitalLetters = newCap;
+                                });
+                              },
+                              title: const Text("Capital Letters")),
+                          SwitchListTile(
+                              shape: const RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.only(
+                                      bottomLeft: Radius.circular(10),
+                                      bottomRight: Radius.circular(10))),
+                              subtitle:
+                                  const Text("Add Symbols to your password"),
+                              value: isClicked_Symbols,
+                              onChanged: (newSym) {
+                                setState(() {
+                                  isClicked_Symbols = newSym;
+                                });
+                              },
+                              title: const Text("Symbols")),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
