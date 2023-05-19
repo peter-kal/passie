@@ -6,7 +6,7 @@ String Password(var hasNum, var hasSym, var hasUppLet, var hasSmllLet,
   const LowerCase = 'abcdefghijklmnopqrstuvwxyz';
   const UpperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   const Numbers = '0123456789';
-  final sym = symbols;
+  var sym = symbols;
 
   String chars = '';
   if (hasUppLet) {
