@@ -1,10 +1,6 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_spinbox/flutter_spinbox.dart';
 import 'package:passie/password.dart';
-
 import 'package:yaru_widgets/yaru_widgets.dart';
 import 'package:cart_stepper/cart_stepper.dart';
 import 'package:passie/copymessage.dart';
@@ -17,10 +13,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  bool isClicked_Numbers = true;
-  bool isClicked_SmallLetters = true;
-  bool isClicked_CapitalLetters = true;
-  bool isClicked_Symbols = true;
+  bool? isClicked_Numbers = true;
+  bool? isClicked_SmallLetters = true;
+  bool? isClicked_CapitalLetters = true;
+  bool? isClicked_Symbols = true;
   TextEditingController pacoforsymbols = TextEditingController();
   @override
   void initState() {
@@ -53,7 +49,17 @@ class _HomePageState extends State<HomePage> {
                     return AlertDialog(
                       titlePadding: EdgeInsets.zero,
                       title: const YaruDialogTitleBar(
-                        title: Text("More Info"),
+                        centerTitle: true,
+                        title: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            YaruIconButton(icon: Icon(Icons.info)),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            Text("More Info")
+                          ],
+                        ),
                         isClosable: true,
                       ),
                       content: SizedBox(
@@ -187,7 +193,7 @@ class _HomePageState extends State<HomePage> {
                 padding: const EdgeInsets.all(0),
                 margin: const EdgeInsets.all(8),
                 child: Column(children: [
-                  YaruSwitchListTile(
+                  YaruCheckboxListTile(
                       shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(10),
@@ -200,7 +206,7 @@ class _HomePageState extends State<HomePage> {
                         });
                       },
                       title: const Text("Numbers")),
-                  YaruSwitchListTile(
+                  YaruCheckboxListTile(
                       subtitle:
                           const Text("Add Lower Case Letters to your password"),
                       value: isClicked_SmallLetters,
@@ -210,7 +216,7 @@ class _HomePageState extends State<HomePage> {
                         });
                       },
                       title: const Text("Lower Letters")),
-                  YaruSwitchListTile(
+                  YaruCheckboxListTile(
                       subtitle:
                           const Text("Add Capital Letters to your password"),
                       value: isClicked_CapitalLetters,
@@ -220,7 +226,7 @@ class _HomePageState extends State<HomePage> {
                         });
                       },
                       title: const Text("Capital Letters")),
-                  YaruSwitchListTile(
+                  YaruCheckboxListTile(
                       shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(10),
