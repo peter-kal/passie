@@ -5,8 +5,8 @@
 </a>
 
 Passie is a password generator built with flutter, and yaru widgets.
-![](screenshots/sc1.png)
-![](screenshots/sc2.png)
+![](screenshots/ScrDark.png.png)
+![](screenshots/ScrLight.png.png)
 
 
 
