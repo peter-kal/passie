@@ -33,13 +33,14 @@ static void my_application_activate(GApplication* application) {
   GtkWindow* window = GTK_WINDOW(hdy_application_window_new());
   gtk_window_set_application(window, GTK_APPLICATION(application));
   
+
   GdkGeometry geometry_min;
-  geometry_min.min_width = 500;
-  geometry_min.min_height = 540;
+  geometry_min.min_width = 450;
+  geometry_min.min_height = 500;
   gtk_window_set_geometry_hints(window, nullptr, &geometry_min, GDK_HINT_MIN_SIZE);
 
 
-  gtk_window_set_default_size(window, 540, 500);
+  gtk_window_set_default_size(window, 450, 500);
   gtk_widget_show(GTK_WIDGET(window));
 
   g_autoptr(FlDartProject) project = fl_dart_project_new();

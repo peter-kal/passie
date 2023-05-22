@@ -7,20 +7,20 @@ import 'package:window_manager/window_manager.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 
 Future<void> main() async {
+  Size thewindowmax = const Size(530, 550);
+  Size thewindowmin = const Size(500, 537);
   await YaruWindowTitleBar.ensureInitialized();
   WidgetsFlutterBinding.ensureInitialized();
 
   await windowManager.ensureInitialized();
 
-  WindowOptions windowOptions = const WindowOptions(
-    size: Size(500, 540),
-    maximumSize: Size(500, 540),
-    minimumSize: Size(500, 540),
+  WindowOptions windowOptions = WindowOptions(
+    maximumSize: thewindowmax,
+    minimumSize: thewindowmin,
     fullScreen: false,
   );
   await windowManager.waitUntilReadyToShow(windowOptions, () async {
     await windowManager.focus();
-    await windowManager.getSize();
     await windowManager.show();
   });
 
