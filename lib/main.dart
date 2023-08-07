@@ -1,6 +1,4 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:yaru/yaru.dart';
 import 'package:passie/home.dart';
 import 'package:window_manager/window_manager.dart';
