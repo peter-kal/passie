@@ -67,68 +67,74 @@ class _HomePageState extends State<HomePage> {
                         width: 300,
                         child: Column(
                           children: [
-                            const YaruSection(
-                                child: YaruTile(
-                              title: Text('Created By:'),
-                              trailing: Text("Peter Kal"),
-                            )),
+                            const Card(
+                              child: YaruSection(
+                                  child: YaruTile(
+                                title: Text('Created By:'),
+                                trailing: Text("Peter Kal"),
+                              )),
+                            ),
                             const SizedBox(height: 10),
-                            YaruSection(
-                                child: Column(children: [
-                              const YaruTile(
-                                title: Text("License:"),
-                                trailing: SelectableText("MPL-2.0"),
-                              ),
-                              YaruTile(
-                                  title: const Text("Source Code:"),
-                                  trailing: ElevatedButton(
-                                    onPressed: () {
-                                      const copyforlink = ClipboardData(
-                                          text:
-                                              'https://github.com/peter-kal/passie');
-                                      Clipboard.setData(copyforlink)
-                                          .then((result) {
-                                        copySnack;
-                                      });
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(copySnack);
-                                    },
-                                    child: const Row(
-                                      children: [
-                                        Text("Copy Link"),
-                                        SizedBox(width: 5),
-                                        Icon(Icons.copy)
-                                      ],
-                                    ),
-                                  )),
-                            ])),
-                            const SizedBox(height: 10),
-                            YaruSection(
-                                child: SizedBox(
-                              child: TextField(
-                                controller: pacoforsymbols,
-                                enabled: true,
-                                decoration: InputDecoration(
-                                  suffix: YaruIconButton(
-                                    tooltip: 'Restore',
-                                    icon: const Icon(Icons.restore),
-                                    onPressed: () {
-                                      SymbolsValue = '@!#{}[]":%^&*()';
-                                      pacoforsymbols.text = SymbolsValue;
-                                    },
-                                  ),
-                                  labelText: 'Symbols',
+                            Card(
+                              child: YaruSection(
+                                  child: Column(children: [
+                                const YaruTile(
+                                  title: Text("License:"),
+                                  trailing: SelectableText("MPL-2.0"),
                                 ),
-                                onSubmitted: (newsym) {
-                                  newsym = pacoforsymbols.text;
-                                  SymbolsValue = pacoforsymbols.text;
-                                },
-                                onChanged: (newsym) {
-                                  newsym = pacoforsymbols.text;
-                                  SymbolsValue = pacoforsymbols.text;
-                                },
-                              ),
-                            ))
+                                YaruTile(
+                                    title: const Text("Source Code:"),
+                                    trailing: ElevatedButton(
+                                      onPressed: () {
+                                        const copyforlink = ClipboardData(
+                                            text:
+                                                'https://github.com/peter-kal/passie');
+                                        Clipboard.setData(copyforlink)
+                                            .then((result) {
+                                          copySnack;
+                                        });
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(copySnack);
+                                      },
+                                      child: const Row(
+                                        children: [
+                                          Text("Copy Link"),
+                                          SizedBox(width: 5),
+                                          Icon(Icons.copy)
+                                        ],
+                                      ),
+                                    )),
+                              ])),
+                            ),
+                            const SizedBox(height: 10),
+                            Card(
+                              child: YaruSection(
+                                  child: SizedBox(
+                                child: TextField(
+                                  controller: pacoforsymbols,
+                                  enabled: true,
+                                  decoration: InputDecoration(
+                                    suffix: YaruIconButton(
+                                      tooltip: 'Restore',
+                                      icon: const Icon(Icons.restore),
+                                      onPressed: () {
+                                        SymbolsValue = '@!#{}[]":%^&*()';
+                                        pacoforsymbols.text = SymbolsValue;
+                                      },
+                                    ),
+                                    labelText: 'Symbols',
+                                  ),
+                                  onSubmitted: (newsym) {
+                                    newsym = pacoforsymbols.text;
+                                    SymbolsValue = pacoforsymbols.text;
+                                  },
+                                  onChanged: (newsym) {
+                                    newsym = pacoforsymbols.text;
+                                    SymbolsValue = pacoforsymbols.text;
+                                  },
+                                ),
+                              )),
+                            )
                           ],
                         ),
                       ),
