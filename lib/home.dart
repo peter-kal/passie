@@ -155,7 +155,7 @@ class _HomePageState extends State<HomePage> {
                   style: const TextStyle(
                       fontSize: 20, fontStyle: FontStyle.normal),
                   readOnly: true,
-                  enableInteractiveSelection: false,
+                  enableInteractiveSelection: true,
                   decoration: InputDecoration(
                       suffix: YaruIconButton(
                         icon: const Icon(Icons.copy),
