@@ -1,7 +1,7 @@
 name: passie
 title: Passie
 base: core22 
-version: 1.0.4.1
+version: 1.0.4.2
 license: MPL-2.0
 source-code: https://github.com/peter-kal/passie
 website: https://github.com/peter-kal/passie
