@@ -6,6 +6,14 @@ const copySnack = SnackBar(
     showCloseIcon: true,
     shape:
         OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(15))),
-    content: Text(
-      "Copied to Clipboard!",
+    content: Row(
+      children: [
+        Icon(
+          Icons.done,
+          color: Colors.green,
+        ),
+        Text(
+          "Copied to Clipboard!",
+        ),
+      ],
     ));
