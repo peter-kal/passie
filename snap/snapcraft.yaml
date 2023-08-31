@@ -25,31 +25,35 @@ architectures:
  - arm64
 
 parts:
-  flutter-from-git:
+ 
+  flutter-git:
     source: https://github.com/flutter/flutter.git
-    source-branch: stable
+    source-tag: 3.13.0
+    source-depth: 1
     plugin: nil
     override-build: |
       mkdir -p $CRAFT_PART_INSTALL/usr/bin
       mkdir -p $CRAFT_PART_INSTALL/usr/libexec
       cp -r $CRAFT_PART_SRC $CRAFT_PART_INSTALL/usr/libexec/flutter
       ln -s $CRAFT_PART_INSTALL/usr/libexec/flutter/bin/flutter $CRAFT_PART_INSTALL/usr/bin/flutter
+      ln -s $SNAPCRAFT_PART_INSTALL/usr/libexec/flutter/bin/dart $SNAPCRAFT_PART_INSTALL/usr/bin/dart
+      $CRAFT_PART_INSTALL/usr/bin/flutter doctor
     build-packages:
       - clang
       - cmake
       - curl
+      - libgtk-3-dev
       - ninja-build
       - unzip
       - xz-utils
       - zip
-    prime:
-      - -*
+    override-prime: ''
 
 
   passie:
     plugin: nil
     source: https://github.com/peter-kal/passie.git
-    after: [flutter-from-git]
+    after: [flutter-git]
     
     override-build: |
       set -eux
