@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yaru_icons/yaru_icons.dart';
 
 const copySnack = SnackBar(
     elevation: 20,
@@ -9,7 +10,7 @@ const copySnack = SnackBar(
     content: Row(
       children: [
         Icon(
-          Icons.done,
+          YaruIcons.ok_simple,
           color: Colors.green,
         ),
         Text(
