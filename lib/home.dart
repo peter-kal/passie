@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:passie/password.dart';
+import 'package:passie/provider.dart';
+import 'package:provider/provider.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 import 'package:cart_stepper/cart_stepper.dart';
 import 'package:passie/copymessage.dart';
@@ -13,10 +15,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  bool? isClicked_Numbers = true;
-  bool? isClicked_SmallLetters = true;
-  bool? isClicked_CapitalLetters = true;
-  bool? isClicked_Symbols = true;
   TextEditingController pacoforsymbols = TextEditingController();
   @override
   void initState() {
@@ -25,7 +23,6 @@ class _HomePageState extends State<HomePage> {
   }
 
   var SymbolsValue = '@!#{}[]":%^&*()';
-  int l = 15;
   final paco = TextEditingController();
   @override
   void dispose() {
@@ -107,33 +104,35 @@ class _HomePageState extends State<HomePage> {
                               ])),
                             ),
                             const SizedBox(height: 10),
-                            Card(
-                              child: YaruSection(
-                                  child: SizedBox(
-                                child: TextField(
-                                  controller: pacoforsymbols,
-                                  enabled: true,
-                                  decoration: InputDecoration(
-                                    suffix: YaruIconButton(
-                                      tooltip: 'Restore',
-                                      icon: const Icon(Icons.restore),
-                                      onPressed: () {
-                                        SymbolsValue = '@!#{}[]":%^&*()';
-                                        pacoforsymbols.text = SymbolsValue;
-                                      },
+                            Consumer<ToCodeVariables>(
+                              builder: (context, value, child) => Card(
+                                child: YaruSection(
+                                    child: SizedBox(
+                                  child: TextField(
+                                    controller: pacoforsymbols,
+                                    enabled: true,
+                                    decoration: InputDecoration(
+                                      suffix: YaruIconButton(
+                                        tooltip: 'Restore',
+                                        icon: const Icon(Icons.restore),
+                                        onPressed: () {
+                                          pacoforsymbols.text =
+                                              value.SymbolsValue;
+                                        },
+                                      ),
+                                      labelText: 'Symbols',
                                     ),
-                                    labelText: 'Symbols',
+                                    onSubmitted: (newsym) {
+                                      newsym = pacoforsymbols.text;
+                                      value.updateSymbolsValue(newsym);
+                                    },
+                                    onChanged: (newsym) {
+                                      newsym = pacoforsymbols.text;
+                                      value.updateSymbolsValue(newsym);
+                                    },
                                   ),
-                                  onSubmitted: (newsym) {
-                                    newsym = pacoforsymbols.text;
-                                    SymbolsValue = pacoforsymbols.text;
-                                  },
-                                  onChanged: (newsym) {
-                                    newsym = pacoforsymbols.text;
-                                    SymbolsValue = pacoforsymbols.text;
-                                  },
-                                ),
-                              )),
+                                )),
+                              ),
                             )
                           ],
                         ),
@@ -176,106 +175,94 @@ class _HomePageState extends State<HomePage> {
               ),
               SizedBox(
                 height: 40,
-                child: FilledButton(
-                    onPressed: () {
-                      var password = Password(
-                          isClicked_Numbers,
-                          isClicked_Symbols,
-                          isClicked_CapitalLetters,
-                          isClicked_SmallLetters,
-                          l,
-                          SymbolsValue);
-                      paco.text = password;
-                    },
-                    child: const Text("Generate Password")),
+                child: Consumer<ToCodeVariables>(
+                  builder: (context, value, child) => FilledButton(
+                      onPressed: () {
+                        var password = Password(
+                            value.isClicked_Numbers,
+                            value.isClicked_Symbols,
+                            value.isClicked_CapitalLetters,
+                            value.isClicked_SmallLetters,
+                            value.l,
+                            value.SymbolsValue);
+                        paco.text = password;
+                      },
+                      child: const Text("Generate Password")),
+                ),
               )
             ],
           ),
         ),
-        body: Center(
-          child: Column(
-            children: [
-              YaruSection(
-                padding: const EdgeInsets.all(0),
-                margin: const EdgeInsets.all(8),
-                child: Column(children: [
-                  YaruCheckboxListTile(
-                      shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(10),
-                              topRight: Radius.circular(10))),
-                      value: isClicked_Numbers,
-                      subtitle: const Text("Add Numbers to your password"),
-                      onChanged: (newNum) {
-                        setState(() {
-                          isClicked_Numbers = newNum;
-                        });
-                      },
-                      title: const Text("Numbers")),
-                  YaruCheckboxListTile(
-                      subtitle:
-                          const Text("Add Lower Case Letters to your password"),
-                      value: isClicked_SmallLetters,
-                      onChanged: (newSml) {
-                        setState(() {
-                          isClicked_SmallLetters = newSml;
-                        });
-                      },
-                      title: const Text("Lower Letters")),
-                  YaruCheckboxListTile(
-                      subtitle:
-                          const Text("Add Capital Letters to your password"),
-                      value: isClicked_CapitalLetters,
-                      onChanged: (newCap) {
-                        setState(() {
-                          isClicked_CapitalLetters = newCap;
-                        });
-                      },
-                      title: const Text("Capital Letters")),
-                  YaruCheckboxListTile(
-                      shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(
-                              bottomLeft: Radius.circular(10),
-                              bottomRight: Radius.circular(10))),
-                      subtitle: const Text("Add Symbols to your password"),
-                      value: isClicked_Symbols,
-                      onChanged: (newSym) {
-                        setState(() {
-                          isClicked_Symbols = newSym;
-                        });
-                      },
-                      title: const Text("Symbols"))
-                ]),
-              ),
-              const SizedBox(
-                height: 3,
-              ),
-              SizedBox(
-                  width: 150,
-                  height: 40,
-                  child: CartStepperInt(
-                    editKeyboardType: TextInputType.number,
-                    size: 46,
-                    value: l,
-                    axis: Axis.horizontal,
-                    didChangeCount: (value) {
-                      setState(() {
-                        l = value;
-                        if (l < 5) {
-                          // Make 5 the minimum
-                          l = 5;
-                        }
-                        if (l > 100000) {
-                          // Makes 100000 the maximum
-                          l = 100000;
-                        }
-                      });
-                    },
-                  )),
-              const SizedBox(
-                height: 3,
-              ),
-            ],
+        body: Consumer<ToCodeVariables>(
+          builder: (context, value, child) => Center(
+            child: Column(
+              children: [
+                YaruSection(
+                  padding: const EdgeInsets.all(0),
+                  margin: const EdgeInsets.all(8),
+                  child: Column(children: [
+                    YaruCheckboxListTile(
+                        shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(10),
+                                topRight: Radius.circular(10))),
+                        value: value.isClicked_Numbers,
+                        subtitle: const Text("Add Numbers to your password"),
+                        onChanged: (newNum) {
+                          value.updateNumbers(newNum);
+                        },
+                        title: const Text("Numbers")),
+                    YaruCheckboxListTile(
+                        subtitle: const Text(
+                            "Add Lower Case Letters to your password"),
+                        value: value.isClicked_SmallLetters,
+                        onChanged: (newSml) {
+                          value.updateSmallLetters(newSml);
+                        },
+                        title: const Text("Lower Letters")),
+                    YaruCheckboxListTile(
+                        subtitle:
+                            const Text("Add Capital Letters to your password"),
+                        value: value.isClicked_CapitalLetters,
+                        onChanged: (newCap) {
+                          value.updateCapitalLetters(newCap);
+                        },
+                        title: const Text("Capital Letters")),
+                    YaruCheckboxListTile(
+                        shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(10),
+                                bottomRight: Radius.circular(10))),
+                        subtitle: const Text("Add Symbols to your password"),
+                        value: value.isClicked_Symbols,
+                        onChanged: (newSym) {
+                          value.updateSymbols(newSym);
+                        },
+                        title: const Text("Symbols"))
+                  ]),
+                ),
+                const SizedBox(
+                  height: 3,
+                ),
+                Consumer<ToCodeVariables>(
+                  builder: (context, value, child) => SizedBox(
+                      width: 150,
+                      height: 40,
+                      child: CartStepperInt(
+                        editKeyboardType: TextInputType.number,
+                        size: 46,
+                        value: value.l,
+                        axis: Axis.horizontal,
+                        didChangeCount: (newl) {
+                          value.updatel(newl);
+                        },
+                      )),
+                ),
+                const SizedBox(
+                  height: 3,
+                ),
+              ],
+            ),
           ),
         ));
   }

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:yaru/yaru.dart';
 import 'package:passie/home.dart';
+import 'package:passie/provider.dart';
 import 'package:window_manager/window_manager.dart';
+import 'package:provider/provider.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 
 Future<void> main() async {
@@ -22,7 +25,10 @@ Future<void> main() async {
     await windowManager.show();
   });
 
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+    create: (_) => ToCodeVariables(),
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {

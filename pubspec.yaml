@@ -33,12 +33,14 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
+  cupertino_icons: ^1.0.6
   yaru: ^0.10.0
   yaru_widgets: ^2.7.0
-  cart_stepper: ^4.1.2     
+  cart_stepper: ^4.1.2    
   handy_window: ^0.3.1
   yaru_colors: ^0.1.7
+  provider: ^6.0.5
+  yaru_icons: ^2.2.1
 
  
 dev_dependencies:
