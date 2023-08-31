@@ -54,15 +54,15 @@ parts:
     plugin: nil
     source: https://github.com/peter-kal/passie.git
     after: [flutter-git]
-    
+    source-type: git 
     override-build: |
+      mkdir -p $CRAFT_PART_INSTALL/bin/lib
+      # work around pub get stack overflow # https://github.com/dart-lang/sdk/issues/51068#issuecomment-1396588253
+      set +e
+      dart pub get
       set -eux
-      flutter doctor
-      flutter pub get
       flutter build linux --release -v
-      mkdir -p $CRAFT_PART_INSTALL/bin/
       cp -r build/linux/*/release/bundle/* $CRAFT_PART_INSTALL/bin/
-
 
 slots:
   passie-dbus:
