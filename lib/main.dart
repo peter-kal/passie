@@ -4,7 +4,6 @@ import 'package:yaru/yaru.dart';
 import 'package:passie/home.dart';
 import 'package:passie/provider.dart';
 import 'package:window_manager/window_manager.dart';
-import 'package:provider/provider.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 
 Future<void> main() async {
