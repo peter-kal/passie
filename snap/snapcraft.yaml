@@ -72,7 +72,7 @@ slots:
       
 apps:
  passie:
-  command: passie
+  command: bin/Passie
   desktop: snap/gui/passie.desktop
   extensions: [gnome]
   plugs:
