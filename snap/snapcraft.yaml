@@ -50,7 +50,7 @@ parts:
 
 
  passie:
-     plugin: nil
+    plugin: nil
     source: https://github.com/peter-kal/passie.git
     after: [flutter-git]
     source-type: git 
