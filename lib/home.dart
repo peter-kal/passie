@@ -117,7 +117,9 @@ class _HomePageState extends State<HomePage> {
                                         icon: const Icon(Icons.restore),
                                         onPressed: () {
                                           pacoforsymbols.text =
-                                              value.SymbolsValue;
+                                              value.DefaultSymbolsValue;
+                                          value.updateSymbolsValue(
+                                              value.DefaultSymbolsValue);
                                         },
                                       ),
                                       labelText: 'Symbols',

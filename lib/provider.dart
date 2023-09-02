@@ -58,6 +58,7 @@ class ToCodeVariables extends ChangeNotifier {
   }
 
   // symbolsmanagenment
+  String DefaultSymbolsValue = '@!#{}[]":%^&*()';
 
   String _SymbolsValue = '@!#{}[]":%^&*()';
   String get SymbolsValue => _SymbolsValue;
