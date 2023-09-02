@@ -1,7 +1,7 @@
 name: passie
 title: Passie
 base: core22 
-version: 2.0.0
+version: "2.0"
 license: MPL-2.0
 source-code: https://github.com/peter-kal/passie
 website: https://github.com/peter-kal/passie
@@ -25,8 +25,7 @@ architectures:
  - arm64
 
 parts:
- 
-  flutter-git:
+ flutter-git:
     source: https://github.com/flutter/flutter.git
     source-tag: 3.13.0
     source-depth: 1
@@ -50,8 +49,8 @@ parts:
     override-prime: ''
 
 
-  passie:
-    plugin: nil
+ passie:
+     plugin: nil
     source: https://github.com/peter-kal/passie.git
     after: [flutter-git]
     source-type: git 
@@ -64,6 +63,7 @@ parts:
       flutter build linux --release -v
       cp -r build/linux/*/release/bundle/* $CRAFT_PART_INSTALL/bin/
 
+
 slots:
   passie-dbus:
    interface: dbus
@@ -72,7 +72,7 @@ slots:
       
 apps:
  passie:
-  command: bin/Passie
+  command: passie
   desktop: snap/gui/passie.desktop
   extensions: [gnome]
   plugs:
@@ -82,4 +82,5 @@ apps:
     - desktop-legacy
     - unity7 
     - opengl
+
 
