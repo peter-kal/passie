@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:passie/bloc/observer.dart';
+import 'package:passie/bloc/passiebloc/passie_bloc.dart';
 import 'package:yaru/yaru.dart';
 import 'package:passie/home.dart';
-import 'package:passie/provider.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 
 Future<void> main() async {
+  Bloc.observer = MyBlocObserver();
   Size thewindowmax = const Size(530, 550);
   Size thewindowmin = const Size(500, 537);
   await YaruWindowTitleBar.ensureInitialized();
@@ -24,10 +26,7 @@ Future<void> main() async {
     await windowManager.show();
   });
 
-  runApp(ChangeNotifierProvider(
-    create: (_) => ToCodeVariables(),
-    child: const MyApp(),
-  ));
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -35,14 +34,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return YaruTheme(builder: (context, yaru, child) {
-      return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Passie',
-        theme: yaru.theme,
-        darkTheme: yaru.darkTheme,
-        home: const HomePage(),
-      );
-    });
+    return YaruTheme(
+      builder: (context, yaru, child) {
+        return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: 'Passie',
+            theme: yaru.theme,
+            darkTheme: yaru.darkTheme,
+            home: BlocProvider(
+              create: (context) => PassieBloc()..add(const LoadOptions()),
+              child: const HomePage(),
+            ));
+      },
+    );
   }
 }
