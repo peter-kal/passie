@@ -10,20 +10,16 @@ Passie is a password generator built with flutter, and yaru widgets.
 
 
 
-Problems:
-- In some cases you get small letters in the generated password even if you de-select it(fixed)
+
 
 Plans:
-- Some Design Improvements(done)
-- Ditch gtk-header-bar for the YaruWindowTitleBar (done)
-- Get rounded corners(with handy_window)(done)
-- Make the app respect the accent colours(it already respects dark/light mode)(done)
-- Make an icon (done)
-- make a .desktop file(done)
-- improve snap(done)
-- set limits to the number of characters(done)
-- made the window minimizable (done)
-- Publish on Snap Store(done)
+- Complete the current Provider => BLoC transition
+- Fix the issue of BlocBuilder in SettingsPage reading a different state than the rest
+- Add localization support 
+- Add the ability to change the theme by the settings page 
+- (Pass the last two through a Bloc)
+- Make the order of [state.] and [event.] variables the same as the one in the UI 
+
 
 
 
