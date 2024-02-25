@@ -18,6 +18,7 @@ class PassieBloc extends Bloc<PassieEvent, PassieState> {
     on<SwitchSymChangedEvent>(_onSwitchSymChangedEvent);
     on<FilledButtonForPasswordClickedEvent>(
         _onFilledButtonForPasswordClickedEvent);
+    on<RestoreButtonForSymsClickedEvent>(_onRestoreButtonForSymsClickedEvent);
   }
 
   void _onFilledButtonForPasswordClickedEvent(
@@ -135,6 +136,21 @@ class PassieBloc extends Bloc<PassieEvent, PassieState> {
           state.default4Caps,
           state.defaultLength,
           event.newsyms,
+          state.thePasswordAtHand));
+    }
+  }
+
+  void _onRestoreButtonForSymsClickedEvent(
+      RestoreButtonForSymsClickedEvent event, Emitter<PassieState> emit) {
+    final state = this.state;
+    if (state is LoadedState) {
+      emit(LoadedState(
+          state.default4Syms,
+          state.default4Nums,
+          state.default4Low,
+          state.default4Caps,
+          state.defaultLength,
+          '@!#{}[]":%^&*()',
           state.thePasswordAtHand));
     }
   }

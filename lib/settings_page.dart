@@ -29,6 +29,14 @@ class SettingsPage extends StatelessWidget {
                       BlocProvider.of<PassieBloc>(context)
                           .add(SymbolsChanged(value));
                     },
+                    decoration: InputDecoration(
+                        suffix: YaruIconButton(
+                      icon: const Icon(Icons.restore),
+                      onPressed: () {
+                        BlocProvider.of<PassieBloc>(context)
+                            .add(const RestoreButtonForSymsClickedEvent());
+                      },
+                    )),
                   );
                 } else {
                   return const YaruCircularProgressIndicator();
