@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:passie/password.dart';
@@ -9,6 +11,7 @@ class PassieBloc extends Bloc<PassieEvent, PassieState> {
   PassieBloc() : super(const LoadingState()) {
     on<LoadOptions>(_onLoadingOptions);
     on<LengthChangedEvent>(_onLengtChangedEvent);
+    on<SymbolsChanged>(_onSymbolsChanged);
     on<SwitchCapChangedEvent>(_onSwitchCapChangedEvent);
     on<SwitchNumChangedEvent>(_onSwitchNumChangedEvent);
     on<SwitchLowChangedEvent>(_onSwitchLowChangedEvent);
@@ -118,6 +121,20 @@ class PassieBloc extends Bloc<PassieEvent, PassieState> {
           state.default4Caps,
           forlimits,
           state.symbols,
+          state.thePasswordAtHand));
+    }
+  }
+
+  void _onSymbolsChanged(SymbolsChanged event, Emitter<PassieState> emit) {
+    final state = this.state;
+    if (state is LoadedState) {
+      emit(LoadedState(
+          state.default4Syms,
+          state.default4Nums,
+          state.default4Low,
+          state.default4Caps,
+          state.defaultLength,
+          event.newsyms,
           state.thePasswordAtHand));
     }
   }

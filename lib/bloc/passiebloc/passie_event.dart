@@ -73,3 +73,10 @@ class RestoreButtonForSymsClickedEvent extends PassieEvent {
   @override
   List<Object> get props => [];
 }
+
+class SymbolsChanged extends PassieEvent {
+  const SymbolsChanged(this.newsyms);
+  final String newsyms;
+  @override
+  List<Object> get props => [newsyms];
+}

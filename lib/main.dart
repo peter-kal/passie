@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:passie/bloc/observer.dart';
 import 'package:passie/bloc/pagenavigationbloc/pagenavigation_bloc.dart';
 import 'package:passie/bloc/passiebloc/passie_bloc.dart';
-import 'package:passie/second_page.dart';
+import 'package:passie/settings_page.dart';
 import 'package:yaru/yaru.dart';
-import 'package:passie/password_screen.dart';
+import 'package:passie/password_page.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 

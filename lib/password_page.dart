@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:passie/bloc/pagenavigationbloc/pagenavigation_bloc.dart';
 import 'package:passie/bloc/passiebloc/passie_bloc.dart';
-import 'package:passie/second_page.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 import 'package:cart_stepper/cart_stepper.dart';
 import 'package:passie/copymessage.dart';
