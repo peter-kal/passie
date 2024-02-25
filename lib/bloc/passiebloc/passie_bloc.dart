@@ -30,10 +30,10 @@ class PassieBloc extends Bloc<PassieEvent, PassieState> {
           state.defaultLength,
           state.symbols);
       emit(LoadedState(
-          state.default4Syms,
           state.default4Nums,
           state.default4Low,
           state.default4Caps,
+          state.default4Syms,
           state.defaultLength,
           state.symbols,
           thepass));
@@ -53,10 +53,10 @@ class PassieBloc extends Bloc<PassieEvent, PassieState> {
 
     if (state is LoadedState) {
       emit(LoadedState(
-          state.default4Syms,
           state.default4Nums,
           state.default4Low,
           state.default4Caps,
+          state.default4Syms,
           forlimits,
           state.symbols,
           state.thePasswordAtHand));
@@ -67,10 +67,10 @@ class PassieBloc extends Bloc<PassieEvent, PassieState> {
     final state = this.state;
     if (state is LoadedState) {
       emit(LoadedState(
-          state.default4Syms,
           state.default4Nums,
           state.default4Low,
           state.default4Caps,
+          state.default4Syms,
           state.defaultLength,
           event.newsyms,
           state.thePasswordAtHand));
@@ -82,10 +82,10 @@ class PassieBloc extends Bloc<PassieEvent, PassieState> {
     final state = this.state;
     if (state is LoadedState) {
       emit(LoadedState(
-          state.default4Syms,
           state.default4Nums,
           state.default4Low,
           state.default4Caps,
+          state.default4Syms,
           state.defaultLength,
           '@!#{}[]":%^&*()',
           state.thePasswordAtHand));
@@ -95,51 +95,43 @@ class PassieBloc extends Bloc<PassieEvent, PassieState> {
   void _onCheckBoxChanged(CheckBoxChanged event, Emitter<PassieState> emit) {
     final state = this.state;
     if (state is LoadedState) {
-      var statewished = LoadedState(
-          state.default4Syms,
-          state.default4Nums,
-          state.default4Low,
-          state.default4Caps,
-          state.defaultLength,
-          state.symbols,
-          state.thePasswordAtHand);
       switch (event.whichone) {
         case 1:
           emit(LoadedState(
-              state.default4Syms,
               event.newvalue,
               state.default4Low,
               state.default4Caps,
+              state.default4Syms,
               state.defaultLength,
               state.symbols,
               state.thePasswordAtHand));
           break;
         case 2:
           emit(LoadedState(
-              state.default4Syms,
               state.default4Nums,
               event.newvalue,
               state.default4Caps,
+              state.default4Syms,
               state.defaultLength,
               state.symbols,
               state.thePasswordAtHand));
           break;
         case 3:
           emit(LoadedState(
-              state.default4Syms,
               state.default4Nums,
               state.default4Low,
               event.newvalue,
+              state.default4Syms,
               state.defaultLength,
               state.symbols,
               state.thePasswordAtHand));
           break;
         case 4:
           emit(LoadedState(
-              event.newvalue,
               state.default4Nums,
               state.default4Low,
               state.default4Caps,
+              event.newvalue,
               state.defaultLength,
               state.symbols,
               state.thePasswordAtHand));

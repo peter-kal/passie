@@ -16,10 +16,10 @@ class LoadingState extends PassieState {
 
 class LoadedState extends PassieState {
   const LoadedState(
-      this.default4Syms,
       this.default4Nums,
       this.default4Low,
       this.default4Caps,
+      this.default4Syms,
       this.defaultLength,
       this.symbols,
       this.thePasswordAtHand);
