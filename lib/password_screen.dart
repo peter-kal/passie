@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:passie/bloc/pagenavigationbloc/pagenavigation_bloc.dart';
 import 'package:passie/bloc/passiebloc/passie_bloc.dart';
 import 'package:passie/second_page.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 import 'package:cart_stepper/cart_stepper.dart';
 import 'package:passie/copymessage.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class PasswordPage extends StatefulWidget {
+  const PasswordPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<PasswordPage> createState() => _PasswordPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _PasswordPageState extends State<PasswordPage> {
   TextEditingController pacoforsymbols = TextEditingController();
   @override
   void initState() {
@@ -42,8 +43,8 @@ class _HomePageState extends State<HomePage> {
         leading: IconButton(
           icon: const Icon(Icons.settings),
           onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const SettingsPage()));
+            BlocProvider.of<PagenavigationBloc>(context)
+                .add(const SettingsPageEvent());
           },
         ),
       ),

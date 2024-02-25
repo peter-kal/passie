@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:passie/bloc/pagenavigationbloc/pagenavigation_bloc.dart';
 import 'package:passie/bloc/passiebloc/passie_bloc.dart';
 import 'package:passie/copymessage.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
@@ -10,7 +11,6 @@ class SettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final passie = PassieBloc();
     TextEditingController pacoforsymbols = TextEditingController();
     return Scaffold(
       body: Center(
@@ -20,19 +20,17 @@ class SettingsPage extends StatelessWidget {
           child: Card(
               child: Column(
             children: [
-              BlocBuilder(
-                  bloc: passie,
-                  builder: (context, state) {
-                    if (state is LoadedState) {
-                      pacoforsymbols.text = state.symbols;
-                      return TextField(
-                        controller: pacoforsymbols,
-                      );
-                    } else {
-                      print(state.toString());
-                      return const CircularProgressIndicator();
-                    }
-                  })
+              BlocBuilder<PassieBloc, PassieState>(builder: (context, state) {
+                if (state is LoadedState) {
+                  pacoforsymbols.text = state.symbols;
+                  return TextField(
+                    controller: pacoforsymbols,
+                  );
+                } else {
+                  print(state.toString());
+                  return const YaruCircularProgressIndicator();
+                }
+              })
             ],
           )),
         ),
@@ -44,7 +42,8 @@ class SettingsPage extends StatelessWidget {
           child: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () {
-              Navigator.pop(context);
+              BlocProvider.of<PagenavigationBloc>(context)
+                  .add(const PasswordPageEvent());
             },
           ),
         ),

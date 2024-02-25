@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:passie/bloc/observer.dart';
+import 'package:passie/bloc/pagenavigationbloc/pagenavigation_bloc.dart';
 import 'package:passie/bloc/passiebloc/passie_bloc.dart';
+import 'package:passie/second_page.dart';
 import 'package:yaru/yaru.dart';
-import 'package:passie/home.dart';
+import 'package:passie/password_screen.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 
@@ -26,7 +28,12 @@ Future<void> main() async {
     await windowManager.show();
   });
 
-  runApp(const MyApp());
+  runApp(MultiBlocProvider(providers: [
+    BlocProvider(create: ((context) => PassieBloc()..add(const LoadOptions()))),
+    BlocProvider(
+      create: (context) => PagenavigationBloc()..add(const PasswordPageEvent()),
+    )
+  ], child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -37,14 +44,15 @@ class MyApp extends StatelessWidget {
     return YaruTheme(
       builder: (context, yaru, child) {
         return MaterialApp(
-            debugShowCheckedModeBanner: false,
-            title: 'Passie',
-            theme: yaru.theme,
-            darkTheme: yaru.darkTheme,
-            home: BlocProvider(
-              create: (context) => PassieBloc()..add(const LoadOptions()),
-              child: const HomePage(),
-            ));
+          debugShowCheckedModeBanner: false,
+          title: 'Passie',
+          theme: yaru.theme,
+          darkTheme: yaru.darkTheme,
+          home: BlocBuilder<PagenavigationBloc, PagenavigationState>(
+              builder: (context, state) => state is PasswordPageState
+                  ? const PasswordPage()
+                  : const SettingsPage()),
+        );
       },
     );
   }
