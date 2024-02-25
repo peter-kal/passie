@@ -25,9 +25,12 @@ class SettingsPage extends StatelessWidget {
                   pacoforsymbols.text = state.symbols;
                   return TextField(
                     controller: pacoforsymbols,
+                    onChanged: (value) {
+                      BlocProvider.of<PassieBloc>(context)
+                          .add(SymbolsChanged(value));
+                    },
                   );
                 } else {
-                  print(state.toString());
                   return const YaruCircularProgressIndicator();
                 }
               })
