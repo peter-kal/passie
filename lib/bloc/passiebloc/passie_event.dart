@@ -30,36 +30,14 @@ class LengthChangedEvent extends PassieEvent {
   List<Object> get props => [newlengthevent];
 }
 
-class SwitchSymChangedEvent extends PassieEvent {
-  const SwitchSymChangedEvent(this.newvalue);
+class CheckBoxChanged extends PassieEvent {
+  const CheckBoxChanged(this.newvalue, this.whichone);
+
   final bool newvalue;
+  final int whichone;
 
   @override
-  List<Object> get props => [newvalue];
-}
-
-class SwitchCapChangedEvent extends PassieEvent {
-  const SwitchCapChangedEvent(this.newvalue);
-  final bool newvalue;
-
-  @override
-  List<Object> get props => [newvalue];
-}
-
-class SwitchLowChangedEvent extends PassieEvent {
-  const SwitchLowChangedEvent(this.newvalue);
-  final bool newvalue;
-
-  @override
-  List<Object> get props => [newvalue];
-}
-
-class SwitchNumChangedEvent extends PassieEvent {
-  const SwitchNumChangedEvent(this.newvalue);
-  final bool newvalue;
-
-  @override
-  List<Object> get props => [newvalue];
+  List<Object> get props => [newvalue, whichone];
 }
 
 class FilledButtonForPasswordClickedEvent extends PassieEvent {

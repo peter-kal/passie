@@ -126,7 +126,7 @@ class _PasswordPageState extends State<PasswordPage> {
                           onChanged: (newNum) {
                             context
                                 .read<PassieBloc>()
-                                .add(SwitchNumChangedEvent(newNum!));
+                                .add(CheckBoxChanged(newNum!, 1));
                           },
                           title: const Text("Numbers")),
                       YaruCheckboxListTile(
@@ -136,7 +136,7 @@ class _PasswordPageState extends State<PasswordPage> {
                           onChanged: (newSml) {
                             context
                                 .read<PassieBloc>()
-                                .add(SwitchLowChangedEvent(newSml!));
+                                .add(CheckBoxChanged(newSml!, 2));
                           },
                           title: const Text("Lower Letters")),
                       YaruCheckboxListTile(
@@ -146,7 +146,7 @@ class _PasswordPageState extends State<PasswordPage> {
                           onChanged: (newCap) {
                             context
                                 .read<PassieBloc>()
-                                .add(SwitchCapChangedEvent(newCap!));
+                                .add(CheckBoxChanged(newCap!, 3));
                           },
                           title: const Text("Capital Letters")),
                       YaruCheckboxListTile(
@@ -159,7 +159,7 @@ class _PasswordPageState extends State<PasswordPage> {
                           onChanged: (newSym) {
                             context
                                 .read<PassieBloc>()
-                                .add(SwitchSymChangedEvent(newSym!));
+                                .add(CheckBoxChanged(newSym!, 4));
                           },
                           title: const Text("Symbols"))
                     ]),
