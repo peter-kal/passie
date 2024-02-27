@@ -19,48 +19,50 @@ class SettingsPage extends StatelessWidget {
           width: MediaQuery.of(context).size.width / 1.1,
           height: MediaQuery.of(context).size.height / 2,
           child: Card(
+              elevation: 1,
               child: Column(
-            children: [
-              SizedBox(
-                height: 10,
-              ),
-              BlocBuilder<PassieBloc, PassieState>(builder: (context, state) {
-                if (state is LoadedState) {
-                  pacoforsymbols.text = state.symbols;
-                  return SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.8,
-                    height: MediaQuery.of(context).size.height * 0.1,
-                    child: TextField(
-                      controller: pacoforsymbols,
-                      onChanged: (value) {
-                        BlocProvider.of<PassieBloc>(context)
-                            .add(SymbolsChanged(value));
-                      },
-                      decoration: InputDecoration(
-                          labelText: 'Symbols in use',
-                          suffix: YaruIconButton(
-                            tooltip: 'Restore 2 Default',
-                            icon: const Icon(Icons.restore),
-                            onPressed: () {
-                              BlocProvider.of<PassieBloc>(context).add(
-                                  const RestoreButtonForSymsClickedEvent());
-                            },
-                          )),
-                    ),
-                  );
-                } else {
-                  return const YaruCircularProgressIndicator();
-                }
-              }),
-              const SizedBox(
-                height: 10,
-              ),
-              const Divider(),
-              const SizedBox(
-                height: 10,
-              ),
-            ],
-          )),
+                children: [
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  BlocBuilder<PassieBloc, PassieState>(
+                      builder: (context, state) {
+                    if (state is LoadedState) {
+                      pacoforsymbols.text = state.symbols;
+                      return SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        height: MediaQuery.of(context).size.height * 0.1,
+                        child: TextField(
+                          controller: pacoforsymbols,
+                          onChanged: (value) {
+                            BlocProvider.of<PassieBloc>(context)
+                                .add(SymbolsChanged(value));
+                          },
+                          decoration: InputDecoration(
+                              labelText: 'Symbols in use',
+                              suffix: YaruIconButton(
+                                tooltip: 'Restore 2 Default',
+                                icon: const Icon(Icons.restore),
+                                onPressed: () {
+                                  BlocProvider.of<PassieBloc>(context).add(
+                                      const RestoreButtonForSymsClickedEvent());
+                                },
+                              )),
+                        ),
+                      );
+                    } else {
+                      return const YaruCircularProgressIndicator();
+                    }
+                  }),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const Divider(),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                ],
+              )),
         ),
       ),
       appBar: YaruWindowTitleBar(

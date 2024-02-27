@@ -66,6 +66,7 @@ class _PasswordPageState extends State<PasswordPage> {
                     readOnly: true,
                     enableInteractiveSelection: true,
                     decoration: InputDecoration(
+                        labelText: 'Password',
                         suffix: YaruIconButton(
                           icon: const Icon(Icons.copy),
                           tooltip: 'Copy to Clipboard',
