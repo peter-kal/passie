@@ -22,21 +22,35 @@ class PassieBloc extends Bloc<PassieEvent, PassieState> {
     final state = this.state;
 
     if (state is LoadedState) {
-      final String thepass = Password(
-          state.default4Nums,
-          state.default4Syms,
-          state.default4Caps,
-          state.default4Low,
-          state.defaultLength,
-          state.symbols);
-      emit(LoadedState(
-          state.default4Nums,
-          state.default4Low,
-          state.default4Caps,
-          state.default4Syms,
-          state.defaultLength,
-          state.symbols,
-          thepass));
+      if ((state.default4Nums == false) &
+          (state.default4Low == false) &
+          (state.default4Syms == false) &
+          (state.default4Caps == false)) {
+        emit(LoadedState(
+            state.default4Nums,
+            state.default4Low,
+            state.default4Caps,
+            state.default4Syms,
+            state.defaultLength,
+            state.symbols,
+            ':('));
+      } else {
+        final String thepass = Password(
+            state.default4Nums,
+            state.default4Syms,
+            state.default4Caps,
+            state.default4Low,
+            state.defaultLength,
+            state.symbols);
+        emit(LoadedState(
+            state.default4Nums,
+            state.default4Low,
+            state.default4Caps,
+            state.default4Syms,
+            state.defaultLength,
+            state.symbols,
+            thepass));
+      }
     }
   }
 
