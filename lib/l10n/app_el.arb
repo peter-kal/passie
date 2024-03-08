@@ -1,0 +1,25 @@
+{
+"@@locale": "el",
+    
+    "numsCheck" : "Νούμερα",
+    "numsSubtitleCheck" : "Πρόσθεσε Νούμερα στον κωδικό",
+    "lowcaseCheck" : "Πεζά Γράμματα",
+    "lowcaseSubtitleCheck" : "Πρόσθεσε Πεζά Γράμματα στον κωδικό",
+    "capitalLetCheck" : "Κεφαλαία Γράμματα",
+    "capitalLetSubtitleCheck" : "Πρόσθεσε Κεφαλαία Γράμματα στον κωδικό",
+    "symsCheck" : "Σύμβολα",
+    "symsSubtitleCheck" : "Πρόσθεσε Σύμβολα στον κωδικό",
+    "passwordLabelText" : "Κωδικός",
+    "genButton" : "Φτιάξε Κωδικό",
+    "copyButtonTooltip" : "Αντίγραψε τον κωδικό",
+
+    "settingsAppBarTitle" : "Ρυθμίσεις",
+    
+    "symsUsedLabelText" : "Σύμβολα σε χρήση",
+    "symsUsedRestoreButtonTooltip" : "Επαναφορά στα προεπιλεγμένα",
+    "license" : "Άδεια",
+    "sourceCode": "Πηγαίος Κώδικας",
+    "copylinkbutton" : "Αντίγραψε Σύνδεσμο"
+
+
+}

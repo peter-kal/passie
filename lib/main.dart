@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:passie/bloc/observer.dart';
-import 'package:passie/bloc/pagenavigationbloc/pagenavigation_bloc.dart';
-import 'package:passie/bloc/passiebloc/passie_bloc.dart';
-import 'package:passie/settings_page.dart';
 import 'package:yaru/yaru.dart';
-import 'package:passie/password_page.dart';
 import 'package:window_manager/window_manager.dart';
+import 'package:passie/pages.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
+import 'bloc/blocs.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 Future<void> main() async {
   Bloc.observer = MyBlocObserver();
@@ -44,6 +43,8 @@ class MyApp extends StatelessWidget {
     return YaruTheme(
       builder: (context, yaru, child) {
         return MaterialApp(
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
           debugShowCheckedModeBanner: false,
           title: 'Passie',
           theme: yaru.theme,

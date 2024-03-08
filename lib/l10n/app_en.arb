@@ -1,0 +1,24 @@
+{
+	"@@locale": "en",
+    
+    "numsCheck" : "Numbers",
+    "numsSubtitleCheck" : "Add Numbers to your password",
+    "lowcaseCheck" : "Lower Letters",
+    "lowcaseSubtitleCheck" : "Add Lower Case Letters to your password",
+    "capitalLetCheck" : "Capital Letters",
+    "capitalLetSubtitleCheck" : "Add Capital Letters to your password",
+    "symsCheck" : "Symbols",
+    "symsSubtitleCheck" : "Add Symbols to your password",
+    "passwordLabelText" : "Password",
+    "genButton" : "Generate Password",
+    "copyButtonTooltip" : "Copy to Clipboard",
+
+    "settingsAppBarTitle" : "Settings",
+    
+    "symsUsedLabelText" : "Symbols in Use",
+    "symsUsedRestoreButtonTooltip" : "Restore to default",
+    "license" : "License",
+    "sourceCode": "Source Code",
+    "copylinkbutton" : "Copy to Clipboard"
+
+}

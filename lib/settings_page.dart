@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:passie/bloc/pagenavigationbloc/pagenavigation_bloc.dart';
-import 'package:passie/bloc/passiebloc/passie_bloc.dart';
+import 'package:passie/bloc/blocs.dart';
 import 'package:passie/copymessage.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
@@ -38,9 +38,11 @@ class SettingsPage extends StatelessWidget {
                                 .add(SymbolsChanged(value));
                           },
                           decoration: InputDecoration(
-                              labelText: 'Symbols in use',
+                              labelText: AppLocalizations.of(context)!
+                                  .symsUsedLabelText,
                               suffix: YaruIconButton(
-                                tooltip: 'Restore 2 Default',
+                                tooltip: AppLocalizations.of(context)!
+                                    .symsUsedRestoreButtonTooltip,
                                 icon: const Icon(Icons.restore),
                                 onPressed: () {
                                   BlocProvider.of<PassieBloc>(context).add(
@@ -66,7 +68,7 @@ class SettingsPage extends StatelessWidget {
       ),
       appBar: YaruWindowTitleBar(
         isMaximizable: false,
-        title: const Text("Settings"),
+        title: Text(AppLocalizations.of(context)!.settingsAppBarTitle),
         leading: SizedBox(
           child: IconButton(
             icon: const Icon(Icons.arrow_back),
@@ -83,23 +85,23 @@ class SettingsPage extends StatelessWidget {
         child: Center(
           child: ListView(
             children: [
-              const Card(
+              Card(
                 child: YaruSection(
                     child: YaruTile(
-                  title: Text('License:'),
-                  trailing: SelectableText("MPL-2.0"),
+                  title: Text('${AppLocalizations.of(context)!.license}:'),
+                  trailing: const SelectableText("MPL-2.0"),
                 )),
               ),
               Card(
                   child: YaruSection(
                 child: YaruTile(
-                  title: const Text("Source Code:"),
+                  title: Text("${AppLocalizations.of(context)!.sourceCode}:"),
                   trailing: ElevatedButton(
-                    child: const Row(
+                    child: Row(
                       children: [
-                        Text("Copy Link"),
-                        SizedBox(width: 5),
-                        Icon(Icons.copy)
+                        Text(AppLocalizations.of(context)!.copylinkbutton),
+                        const SizedBox(width: 5),
+                        const Icon(Icons.copy)
                       ],
                     ),
                     onPressed: () {

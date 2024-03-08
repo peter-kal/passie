@@ -6,6 +6,7 @@ import 'package:passie/bloc/passiebloc/passie_bloc.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 import 'package:cart_stepper/cart_stepper.dart';
 import 'package:passie/copymessage.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class PasswordPage extends StatefulWidget {
   const PasswordPage({super.key});
@@ -66,10 +67,12 @@ class _PasswordPageState extends State<PasswordPage> {
                     readOnly: true,
                     enableInteractiveSelection: true,
                     decoration: InputDecoration(
-                        labelText: 'Password',
+                        labelText:
+                            AppLocalizations.of(context)!.passwordLabelText,
                         suffix: YaruIconButton(
                           icon: const Icon(Icons.copy),
-                          tooltip: 'Copy to Clipboard',
+                          tooltip:
+                              AppLocalizations.of(context)!.copyButtonTooltip,
                           onPressed: () {
                             final copy =
                                 ClipboardData(text: state.thePasswordAtHand);
@@ -95,7 +98,7 @@ class _PasswordPageState extends State<PasswordPage> {
                             .add(const FilledButtonForPasswordClickedEvent());
                         print(state.toString());
                       },
-                      child: const Text("Generate Password")),
+                      child: Text(AppLocalizations.of(context)!.genButton)),
                 )
               ],
             ),
@@ -123,46 +126,50 @@ class _PasswordPageState extends State<PasswordPage> {
                                   topLeft: Radius.circular(10),
                                   topRight: Radius.circular(10))),
                           value: state.default4Nums,
-                          subtitle: const Text("Add Numbers to your password"),
+                          subtitle: Text(
+                              AppLocalizations.of(context)!.numsSubtitleCheck),
                           onChanged: (newNum) {
                             context
                                 .read<PassieBloc>()
                                 .add(CheckBoxChanged(newNum!, 1));
                           },
-                          title: const Text("Numbers")),
+                          title: Text(AppLocalizations.of(context)!.numsCheck)),
                       YaruCheckboxListTile(
-                          subtitle: const Text(
-                              "Add Lower Case Letters to your password"),
+                          subtitle: Text(AppLocalizations.of(context)!
+                              .lowcaseSubtitleCheck),
                           value: state.default4Low,
                           onChanged: (newSml) {
                             context
                                 .read<PassieBloc>()
                                 .add(CheckBoxChanged(newSml!, 2));
                           },
-                          title: const Text("Lower Letters")),
+                          title:
+                              Text(AppLocalizations.of(context)!.lowcaseCheck)),
                       YaruCheckboxListTile(
-                          subtitle: const Text(
-                              "Add Capital Letters to your password"),
+                          subtitle: Text(AppLocalizations.of(context)!
+                              .capitalLetSubtitleCheck),
                           value: state.default4Caps,
                           onChanged: (newCap) {
                             context
                                 .read<PassieBloc>()
                                 .add(CheckBoxChanged(newCap!, 3));
                           },
-                          title: const Text("Capital Letters")),
+                          title: Text(
+                              AppLocalizations.of(context)!.capitalLetCheck)),
                       YaruCheckboxListTile(
                           shape: const RoundedRectangleBorder(
                               borderRadius: BorderRadius.only(
                                   bottomLeft: Radius.circular(10),
                                   bottomRight: Radius.circular(10))),
-                          subtitle: const Text("Add Symbols to your password"),
+                          subtitle: Text(
+                              AppLocalizations.of(context)!.symsSubtitleCheck),
                           value: state.default4Syms,
                           onChanged: (newSym) {
                             context
                                 .read<PassieBloc>()
                                 .add(CheckBoxChanged(newSym!, 4));
                           },
-                          title: const Text("Symbols"))
+                          title: Text(AppLocalizations.of(context)!.symsCheck))
                     ]),
                   ),
                   const SizedBox(
