@@ -1,22 +1,22 @@
 import 'dart:math';
 
-String Password(var hasNum, var hasSym, var hasUppLet, var hasSmllLet,
+String password(var hasNum, var hasSym, var hasUppLet, var hasSmllLet,
     var lenght, var symbols) {
   final lenghthere = lenght;
-  const LowerCase = 'abcdefghijklmnopqrstuvwxyz';
-  const UpperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  const Numbers = '0123456789';
+  const lowerCase = 'abcdefghijklmnopqrstuvwxyz';
+  const upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const numbers = '0123456789';
   var sym = symbols;
 
   String chars = '';
   if (hasUppLet) {
-    chars += (hasUppLet ? UpperCase : '');
+    chars += (hasUppLet ? upperCase : '');
   }
   if (hasSmllLet) {
-    chars += (hasSmllLet ? LowerCase : '');
+    chars += (hasSmllLet ? lowerCase : '');
   }
   if (hasNum) {
-    chars += (hasNum ? Numbers : '');
+    chars += (hasNum ? numbers : '');
   }
   if (hasSym) {
     chars += (hasSym ? sym : '');

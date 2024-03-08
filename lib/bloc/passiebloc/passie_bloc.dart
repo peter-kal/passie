@@ -35,7 +35,7 @@ class PassieBloc extends Bloc<PassieEvent, PassieState> {
             state.symbols,
             ':('));
       } else {
-        final String thepass = Password(
+        final String thepass = password(
             state.default4Nums,
             state.default4Syms,
             state.default4Caps,
