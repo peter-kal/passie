@@ -1,7 +1,7 @@
 name: passie
 title: Passie
 base: core22 
-version: "2.1"
+version: "3.0"
 license: MPL-2.0
 source-code: https://github.com/peter-kal/passie
 website: https://github.com/peter-kal/passie
@@ -27,7 +27,7 @@ architectures:
 parts:
  flutter-git:
     source: https://github.com/flutter/flutter.git
-    source-tag: 3.19.1
+    source-tag: 3.19.3
     source-depth: 1
     plugin: nil
     override-build: |
