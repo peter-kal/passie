@@ -31,6 +31,11 @@ parts:
     source-depth: 1
     plugin: nil
     override-build: |
+      if [[ "$SNAPCRAFT_TARGET_ARCH" == "arm64" ]]; then
+        curl -O https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.7.6-stable.tar.xz
+        tar -xvf flutter_linux_3.7.6-stable.tar.xz flutter/bin/cache/artifacts/engine/linux-x64/shader_lib
+        cp -R flutter/bin/cache/artifacts/engine/linux-x64/shader_lib $SNAPCRAFT_PART_INSTALL/usr/libexec/flutter/bin/cache/artifacts/engine/linux-arm64
+      fi
       mkdir -p $CRAFT_PART_INSTALL/usr/bin
       mkdir -p $CRAFT_PART_INSTALL/usr/libexec
       cp -r $CRAFT_PART_SRC $CRAFT_PART_INSTALL/usr/libexec/flutter
