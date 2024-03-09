@@ -19,6 +19,6 @@
     "symsUsedRestoreButtonTooltip" : "Restore to default",
     "license" : "License",
     "sourceCode": "Source Code",
-    "copylinkbutton" : "Copy to Clipboard"
+    "copylinkbutton" : "Copy Link"
 
 }
