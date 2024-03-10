@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:passie/bloc/observer.dart';
 import 'package:yaru/yaru.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:passie/pages.dart';
