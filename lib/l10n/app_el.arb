@@ -13,6 +13,9 @@
     "genButton" : "Φτιάξε Κωδικό",
     "copyButtonTooltip" : "Αντίγραψε τον κωδικό",
 
+    "copySnackBarMessage": "Αντιγράφτηκε.",
+
+
     "settingsAppBarTitle" : "Ρυθμίσεις",
     "symsUsedLabelText" : "Σύμβολα σε χρήση",
     "symsUsedRestoreButtonTooltip" : "Επαναφορά στα προεπιλεγμένα",

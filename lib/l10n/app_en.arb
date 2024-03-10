@@ -12,6 +12,9 @@
     "passwordLabelText" : "Password",
     "genButton" : "Generate Password",
     "copyButtonTooltip" : "Copy to Clipboard",
+
+    "copySnackBarMessage": "Copied to Clipboard",
+
     "settingsAppBarTitle" : "Settings",
     "symsUsedLabelText" : "Symbols in Use",
     "symsUsedRestoreButtonTooltip" : "Restore to default",

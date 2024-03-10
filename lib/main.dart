@@ -27,9 +27,12 @@ Future<void> main() async {
   });
 
   runApp(MultiBlocProvider(providers: [
-    BlocProvider(create: ((context) => PassieBloc()..add(const LoadOptions()))),
     BlocProvider(
       create: (context) => PagenavigationBloc()..add(const PasswordPageEvent()),
+    ),
+    BlocProvider(create: ((context) => PassieBloc()..add(const LoadOptions()))),
+    BlocProvider(
+      create: (context) => CopyBloc(),
     )
   ], child: const MyApp()));
 }
