@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:passie/bloc/blocs.dart';
-import 'package:passie/bloc/copy_bloc/copy_bloc.dart';
-import 'package:passie/bloc/pagenavigationbloc/pagenavigation_bloc.dart';
-import 'package:passie/bloc/passiebloc/passie_bloc.dart';
-import 'package:yaru_icons/yaru_icons.dart';
-import 'package:yaru_widgets/yaru_widgets.dart';
+import 'package:yaru/yaru.dart';
 import 'package:cart_stepper/cart_stepper.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 

@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:yaru/yaru.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:passie/pages.dart';
-import 'package:yaru_widgets/yaru_widgets.dart';
 import 'bloc/blocs.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
