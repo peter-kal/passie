@@ -1,0 +1,26 @@
+{
+	"@@locale": "de",
+
+    "numsCheck" : "Zahlen",
+    "numsSubtitleCheck" : "Zahlen zu Ihrem Passwort hinzufügen",
+    "lowcaseCheck" : "Kleinbuchstaben",
+    "lowcaseSubtitleCheck" : "Fügen Sie Kleinbuchstaben zu Ihrem Passwort hinzu",
+    "capitalLetCheck" : "Großbuchstaben",
+    "capitalLetSubtitleCheck" : "Fügen Sie Großbuchstaben zu Ihrem Passwort hinzu",
+    "symsCheck" : "Symbole",
+    "symsSubtitleCheck" : "Symbole zu Ihrem Passwort hinzufügen",
+    "passwordLabelText" : "Passwort",
+    "genButton" : "Passwort Generieren",
+    "copyButtonTooltip" : "Passwort Kopieren",
+    
+    
+    
+ 
+    "settingsAppBarTitle" : "Einstellungen",
+    "symsUsedLabelText" : "Verwendete Symbole",
+    "symsUsedRestoreButtonTooltip" : "Wiederherstellen der Standardeinstellungen",
+    "license" : "Lizenz",
+    "sourceCode": "Quellcode",
+    "copylinkbutton" : "Link kopieren"
+ 
+}
