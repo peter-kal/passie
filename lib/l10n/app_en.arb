@@ -1,6 +1,6 @@
 {
 	"@@locale": "en",
-    
+
     "numsCheck" : "Numbers",
     "numsSubtitleCheck" : "Add Numbers to your password",
     "lowcaseCheck" : "Lower Letters",
@@ -12,13 +12,12 @@
     "passwordLabelText" : "Password",
     "genButton" : "Generate Password",
     "copyButtonTooltip" : "Copy to Clipboard",
-
     "settingsAppBarTitle" : "Settings",
-    
     "symsUsedLabelText" : "Symbols in Use",
     "symsUsedRestoreButtonTooltip" : "Restore to default",
     "license" : "License",
     "sourceCode": "Source Code",
-    "copylinkbutton" : "Copy Link"
-
+    "copylinkbutton" : "Copy Link",
+    "helpWithTranslationInfoButtonTooltip": "Helping with translation would be a huge slay."
+    
 }

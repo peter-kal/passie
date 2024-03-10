@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:passie/bloc/blocs.dart';
 import 'package:passie/copymessage.dart';
+import 'package:yaru_icons/yaru_icons.dart';
 import 'package:yaru_widgets/yaru_widgets.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -95,7 +96,16 @@ class SettingsPage extends StatelessWidget {
               Card(
                   child: YaruSection(
                 child: YaruTile(
-                  title: Text("${AppLocalizations.of(context)!.sourceCode}:"),
+                  title: Row(
+                    children: [
+                      Text("${AppLocalizations.of(context)!.sourceCode}:"),
+                      YaruIconButton(
+                        icon: const Icon(YaruIcons.information),
+                        tooltip: AppLocalizations.of(context)!
+                            .helpWithTranslationInfoButtonTooltip,
+                      )
+                    ],
+                  ),
                   trailing: ElevatedButton(
                     child: Row(
                       children: [

@@ -1,6 +1,6 @@
 {
 "@@locale": "el",
-    
+
     "numsCheck" : "Νούμερα",
     "numsSubtitleCheck" : "Πρόσθεσε Νούμερα στον κωδικό",
     "lowcaseCheck" : "Πεζά Γράμματα",
@@ -14,12 +14,12 @@
     "copyButtonTooltip" : "Αντίγραψε τον κωδικό",
 
     "settingsAppBarTitle" : "Ρυθμίσεις",
-    
     "symsUsedLabelText" : "Σύμβολα σε χρήση",
     "symsUsedRestoreButtonTooltip" : "Επαναφορά στα προεπιλεγμένα",
     "license" : "Άδεια",
     "sourceCode": "Πηγαίος Κώδικας",
-    "copylinkbutton" : "Αντίγραψε Σύνδεσμο"
+    "copylinkbutton" : "Αντίγραψε Σύνδεσμο",
+    "helpWithTranslationInfoButtonTooltip": "H βοήθεια για την μεταγλώττιση θα ήταν slay."
 
-
+ 
 }
