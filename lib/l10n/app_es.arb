@@ -1,0 +1,26 @@
+{
+	"@@locale": "es",
+
+    "numsCheck" : "Números",
+    "numsSubtitleCheck" : "Añade Números a tu contraseña",
+    "lowcaseCheck" : "Letras Minúsculas",
+    "lowcaseSubtitleCheck" : "Añade Letras Minúsculas a tu contraseña",
+    "capitalLetCheck" : "Letras Mayúsculas",
+    "capitalLetSubtitleCheck" : "Añade Mayúsculas a tu contraseña",
+    "symsCheck" : "Símbolos",
+    "symsSubtitleCheck" : "Añade Símbolos a tu contraseña",
+    "passwordLabelText" : "Contraseña",
+    "genButton" : "Generar Contraseña",
+    "copyButtonTooltip" : "Copiar al Portapapeles",
+
+    "copySnackBarMessage": "Copiar al Portapapeles",
+
+    "settingsAppBarTitle" : "Opciones",
+    "symsUsedLabelText" : "Símbolos usados",
+    "symsUsedRestoreButtonTooltip" : "Restaurar por defecto",
+    "license" : "Licencia",
+    "sourceCode": "Código fuente",
+    "copylinkbutton" : "Copiar enlace",
+    "helpWithTranslationInfoButtonTooltip": "Ayudar con la traducción sería una gran slay."
+    
+}
