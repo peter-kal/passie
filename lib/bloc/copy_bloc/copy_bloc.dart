@@ -10,7 +10,7 @@ class CopyBloc extends Bloc<CopyEvent, CopyState> {
     on<CopyButtonClicked>((CopyButtonClicked event, Emitter<CopyState> emit) {
       final copy = ClipboardData(text: event.copy_material);
       Clipboard.setData(copy);
-      emit(CopiedMaterialState());
+      emit(const CopiedMaterialState());
     });
     on<ResetStateEvent>((ResetStateEvent event, Emitter<CopyState> emit) {
       emit(CopyInitial());
