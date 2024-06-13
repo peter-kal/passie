@@ -5,20 +5,17 @@
 </a>
 
 Passie is a password generator built with flutter, and yaru widgets.
-![](screenshots/1.0.4.1%20Dark.png.png.png)
-![](screenshots/ScrLight.png.png)
+![main page](screenshots/Screenshot_of_passie_snapcraft.webp)
+![settings page](screenshots/Screenshot_of_passie_snapcraft_settings.webp)
 
 
 
 
 
-Plans:
-- Complete the current Provider => BLoC transition
-- Fix the issue of BlocBuilder in SettingsPage reading a different state than the rest
-- Add localization support 
-- Add the ability to change the theme by the settings page 
-- (Pass the last two through a Bloc)
-- Make the order of [state.] and [event.] variables the same as the one in the UI 
+Plans for 4.0:
+ - [ ] Use ubuntu_lints for development 
+ - [ ] Use ubuntu_localizations for localization support
+ - [ ] Make suggestions to the user depending on how strong the password is. It shouldn't be annoying or invasive, added to the fact that the strings generated don't have to be used as passwords in the first place.
 
 
 
