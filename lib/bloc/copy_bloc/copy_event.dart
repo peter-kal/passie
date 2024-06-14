@@ -8,12 +8,12 @@ sealed class CopyEvent extends Equatable {
 }
 
 class CopyButtonClicked extends CopyEvent {
-  const CopyButtonClicked(this.copy_material);
+  const CopyButtonClicked(this.copiedMaterial);
 
-  final String copy_material;
+  final String copiedMaterial;
 
   @override
-  List<Object> get props => [copy_material];
+  List<Object> get props => [copiedMaterial];
 }
 
 class ResetStateEvent extends CopyEvent {}
