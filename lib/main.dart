@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:yaru_window/yaru_window.dart';
 import 'package:yaru/yaru.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:passie/pages.dart';
@@ -7,17 +8,19 @@ import 'bloc/blocs.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 Future<void> main() async {
-  Bloc.observer = MyBlocObserver();
-  Size thewindowmax = const Size(530, 550);
-  Size thewindowmin = const Size(500, 537);
   await YaruWindowTitleBar.ensureInitialized();
   WidgetsFlutterBinding.ensureInitialized();
-
   await windowManager.ensureInitialized();
+
+  Bloc.observer = MyBlocObserver();
+
+  Size thewindowmax = const Size(530, 550);
+  Size thewindowmin = const Size(500, 537);
 
   WindowOptions windowOptions = WindowOptions(
     maximumSize: thewindowmax,
     minimumSize: thewindowmin,
+    center: true,
     fullScreen: false,
   );
   await windowManager.waitUntilReadyToShow(windowOptions, () async {
@@ -41,6 +44,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    YaruWindow.setMaximizable(context, false);
+    YaruWindow.show(context);
     return YaruTheme(
       builder: (context, yaru, child) {
         return MaterialApp(
