@@ -1,6 +1,6 @@
 name: passie
 title: Passie
-base: core22 
+base: core24 
 version: "3.0"
 license: MPL-2.0
 source-code: https://github.com/peter-kal/passie
@@ -10,7 +10,7 @@ icon: snap/gui/passieicon2.png
 
 summary: A simple, yet powerful password generator.
 description: |
-  Passie is a password generator build with Flutter, and _Yaru widgets_.
+  Passie is a password generator build with _Flutter_, and _Yaru widgets_.
   You are able to choose if you want numbers, symbols, Capital or Lower case letters; as well as the number of characters.
   Passie is **Open-Source**(licensed under MPL-2.0), and **strictly confined**, meaning it hasn't access to things it doesn't need, 
   like: _internet_, or _system files_.
@@ -20,9 +20,11 @@ description: |
 grade: stable
 confinement: strict 
 compression: lzo
-architectures: 
- - build-on: amd64 
- - build-on: arm64
+platforms:
+  amd64:
+  arm64:
+    build-on: [amd64, arm64,]
+    build-for: [amd64, arm64]
 
 parts:
  flutter-git:
@@ -82,5 +84,8 @@ apps:
     - desktop-legacy
     - unity7 
     - opengl
+
+
+SNAPCRAFT_ENABLE_EXPERIMENTAL_EXTENSIONS=1
 
 
