@@ -1,4 +1,5 @@
 #include "my_application.h"
+
 #include <flutter_linux/flutter_linux.h>
 #ifdef GDK_WINDOWING_X11
 #include <gdk/gdkx.h>
@@ -32,13 +33,11 @@ static void my_application_activate(GApplication* application) {
 
   GtkWindow* window = GTK_WINDOW(hdy_application_window_new());
   gtk_window_set_application(window, GTK_APPLICATION(application));
-  
 
   GdkGeometry geometry_min;
   geometry_min.min_width = 450;
   geometry_min.min_height = 500;
   gtk_window_set_geometry_hints(window, nullptr, &geometry_min, GDK_HINT_MIN_SIZE);
-
 
   gtk_window_set_default_size(window, 450, 500);
   gtk_widget_show(GTK_WIDGET(window));
@@ -47,11 +46,11 @@ static void my_application_activate(GApplication* application) {
   fl_dart_project_set_dart_entrypoint_arguments(project, self->dart_entrypoint_arguments);
 
   FlView* view = fl_view_new(project);
-
+  gtk_widget_show(GTK_WIDGET(view));
   gtk_container_add(GTK_CONTAINER(window), GTK_WIDGET(view));
 
   fl_register_plugins(FL_PLUGIN_REGISTRY(view));
-  gtk_widget_show(GTK_WIDGET(view));
+
   gtk_widget_grab_focus(GTK_WIDGET(view));
 }
 

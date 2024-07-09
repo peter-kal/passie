@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:yaru_window/yaru_window.dart';
 import 'package:yaru/yaru.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:passie/pages.dart';
@@ -44,8 +43,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    YaruWindow.setMaximizable(context, false);
-    YaruWindow.show(context);
     return YaruTheme(
       builder: (context, yaru, child) {
         return MaterialApp(
