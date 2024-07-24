@@ -4,7 +4,7 @@ Encoding=UTF-8
 Version=1.0
 Type=Application
 Name=Passie
-Icon=/snap/gui/passieicon2.png
+Icon=${SNAP}/meta/gui/passieicon2.png
 
 Terminal=false
 Exec=passie
