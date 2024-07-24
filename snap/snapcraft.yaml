@@ -18,13 +18,13 @@ description: |
   
 
 grade: stable
-confinement: strict 
+confinement: devmode 
 compression: lzo
 
 parts:
  flutter-git:
     source: https://github.com/flutter/flutter.git
-    source-tag: 3.22.2
+    source-tag: 3.22.3
     source-depth: 1
     plugin: nil
     override-build: |
@@ -67,6 +67,7 @@ slots:
    bus: session 
    name: io.peter-kal.Passie
       
+      
 apps:
  passie:
   command: bin/Passie
@@ -79,6 +80,8 @@ apps:
     - desktop-legacy
     - unity7 
     - opengl
+    
+
 
 
 
