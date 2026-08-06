@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:passie/bloc/blocs.dart';
 import 'package:yaru/yaru.dart';
 import 'package:cart_stepper/cart_stepper.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:passie/l10n/app_localizations.dart';
 
 class PasswordPage extends StatefulWidget {
   const PasswordPage({super.key});

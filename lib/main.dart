@@ -4,7 +4,7 @@ import 'package:yaru/yaru.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:passie/pages.dart';
 import 'bloc/blocs.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:passie/l10n/app_localizations.dart';
 
 Future<void> main() async {
   await YaruWindowTitleBar.ensureInitialized();
@@ -47,7 +47,12 @@ class MyApp extends StatelessWidget {
       builder: (context, yaru, child) {
         return MaterialApp(
           localizationsDelegates: AppLocalizations.localizationsDelegates,
-          supportedLocales: AppLocalizations.supportedLocales,
+          supportedLocales: const [
+            Locale('en'),
+            Locale('de'),
+            Locale('es'),
+            Locale('el')
+          ],
           debugShowCheckedModeBanner: false,
           title: 'Passie',
           theme: yaru.theme,
