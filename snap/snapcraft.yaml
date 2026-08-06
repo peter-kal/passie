@@ -1,6 +1,6 @@
 name: passie
 title: Passie
-base: core24 
+base: core24
 version: "3.0"
 license: MPL-2.0
 source-code: https://github.com/peter-kal/passie
@@ -12,19 +12,18 @@ summary: A simple, yet powerful password generator.
 description: |
   Passie is a password generator build with _Flutter_, and _Yaru widgets_.
   You are able to choose if you want numbers, symbols, Capital or Lower case letters; as well as the number of characters.
-  Passie is **Open-Source**(licensed under MPL-2.0), and **strictly confined**, meaning it hasn't access to things it doesn't need, 
+  Passie is **Open-Source**(licensed under MPL-2.0), and **strictly confined**, meaning it hasn't access to things it doesn't need,
   like: _internet_, or _system files_.
   Feel safe generating your passwords.
-  
 
 grade: stable
-confinement: devmode 
+confinement: strict
 compression: lzo
 
 parts:
- flutter-git:
+  flutter-git:
     source: https://github.com/flutter/flutter.git
-    source-tag: 3.22.3
+    source-tag: 3.44.8
     source-depth: 1
     plugin: nil
     override-build: |
@@ -43,14 +42,13 @@ parts:
       - unzip
       - xz-utils
       - zip
-    override-prime: ''
+    override-prime: ""
 
-
- passie:
+  passie:
     plugin: nil
     source: https://github.com/peter-kal/passie.git
     after: [flutter-git]
-    source-type: git 
+    source-type: git
     override-build: |
       mkdir -p $CRAFT_PART_INSTALL/bin/lib
       # work around pub get stack overflow # https://github.com/dart-lang/sdk/issues/51068#issuecomment-1396588253
@@ -60,30 +58,21 @@ parts:
       flutter build linux --release -v
       cp -r build/linux/*/release/bundle/* $CRAFT_PART_INSTALL/bin/
 
-
 slots:
   passie-dbus:
-   interface: dbus
-   bus: session 
-   name: io.peter-kal.Passie
-      
-      
+    interface: dbus
+    bus: session
+    name: io.peter-kal.Passie
+
 apps:
- passie:
-  command: bin/Passie
-  desktop: ${SNAP}/meta/gui/passie.desktop
-  extensions: [gnome]
-  plugs:
-    - x11
-    - wayland 
-    - desktop
-    - desktop-legacy
-    - unity7 
-    - opengl
-    
-
-
-
-
-
-
+  passie:
+    command: bin/Passie
+    desktop: ${SNAP}/meta/gui/passie.desktop
+    extensions: [gnome]
+    plugs:
+      - x11
+      - wayland
+      - desktop
+      - desktop-legacy
+      - unity7
+      - opengl
