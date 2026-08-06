@@ -74,7 +74,7 @@ slots:
 apps:
   passie:
     command: bin/Passie
-    desktop: ${SNAP}/meta/gui/passie.desktop
+    desktop: /meta/gui/passie.desktop
     extensions: [gnome]
     plugs:
       - x11
