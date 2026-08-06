@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:passie/bloc/blocs.dart';
 import 'package:yaru/yaru.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:passie/l10n/app_localizations.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
